@@ -1,1 +1,23 @@
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
 <h1>Tutor 4 Me | Tutoring 4 Change</h1>
+
+<div>
+<h2>User Login</h2>
+<%= form_with scope: :user, local: true do |form| %>
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+  </p>
+ 
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+ 
+  <p>
+    <%= form.submit "Log in" %>
+  </p>
+ </div>
+
+<% end %>
