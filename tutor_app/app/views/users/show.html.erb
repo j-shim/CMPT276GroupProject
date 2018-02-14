@@ -1,0 +1,23 @@
+<% provide(:title, @user.username) %>
+
+<h1>Tutor 4 Me | Tutoring 4 Change</h1>
+
+<nav>
+<ul class="nav navbar-nav navbar-right">
+  <li><%= link_to "Sign up", signup_path %></li>
+  <li><%= link_to "Index",   root_path %></li>
+  <li><%= link_to "Help",   help_path %></li>
+  <li><%= link_to "About", about_path %></li>
+  <li><%= link_to "Contact", contact_path %></li>
+</ul>
+</nav>
+
+<div class="row">
+<aside class="col-md-4">
+  <section class="user_info">
+    <h1>
+    <%= @user.username %>
+    </h1>
+  </section>
+</aside>
+</div>
