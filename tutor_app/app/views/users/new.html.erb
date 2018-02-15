@@ -18,7 +18,7 @@
   <h1>Sign up</h1>
   
 
-      <%= form_for(@user, url: signup_path) do |f| %>
+    <%= form_for(@user, url:signup_path) do |form| %>
         <% if @user.errors.any? %>
         <div id="error_explanation">
           <div class="alert alert-danger">
@@ -32,17 +32,43 @@
         </div>
       <% end %>
 
-        <p>
-        <%= f.label :username %><br>
-        <%= f.text_field :username, class: 'form-control' %>
-        </p>
-
-        <p>
-        <%= f.label :password %><br>
-        <%= f.password_field :password, class: 'form-control' %>
-        </p>
-
-        <%= f.submit "Create my account"%>
+    <p>
+	
+      <%= form.label :"first name" %><br>
+	
+      <%= form.text_field :firstname %>
+	
+    </p>
+	
+    <p>
+	
+      <%= form.label :"last name" %><br>
+	
+      <%= form.text_field :lastname %>
+	
+    </p>
+	
+    <p>
+	
+      <%= form.label :username %><br>
+	
+      <%= form.text_field :username %>
+	
+    </p>
+	
+    <p>
+	
+      <%= form.label :password %><br>
+	
+      <%= form.password_field :password %>
+	
+    </p>
+	
+    <p>
+	
+      <%= form.submit "Sign Up" %>
+	
+    </p>
       <% end %>
   </body>
 

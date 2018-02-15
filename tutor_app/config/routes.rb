@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
-
   root 'welcome#index'
 
+  get    '/login',   to: 'welcome#index'
+  post   '/login',   to: 'sessions#create'
+  get '/logout',  to: 'sessions#destroy'
   get '/help', to:'welcome#help'
   get '/about', to:'welcome#about'
   get '/index', to:'welcome#index'

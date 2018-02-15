@@ -15,7 +15,7 @@
 
 <div>
 <h2>User Login</h2>
-<%= form_with scope: :user, local: true do |form| %>
+<%= form_with scope: :user, url:login_path, local: true do |form| %>
   <p>
     <%= form.label :username %><br>
     <%= form.text_field :username %>
@@ -27,9 +27,8 @@
   </p>
  
   <p>
-    <%= form.submit "Log in" %>
+    <%= form.submit "Log in"%>
     
   </p>
  </div>
-
 <% end %>
