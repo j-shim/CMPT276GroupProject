@@ -3,19 +3,19 @@
 <h1>Tutor 4 Me | Tutoring 4 Change</h1>
 
 <nav>
-<ul class="nav navbar-nav navbar-right">
-  <li><%= link_to "Sign up", signup_path %></li>
-  <li><%= link_to "Index",   root_path %></li>
-  <li><%= link_to "Help",   help_path %></li>
-  <li><%= link_to "About", about_path %></li>
-  <li><%= link_to "Contact", contact_path %></li>
+<ul class="nav">
+  <li class="nav"><%= link_to "Sign up", signup_path %></li>
+  <li class="nav"><%= link_to "Index",   root_path %></li>
+  <li class="nav"><%= link_to "Help",   help_path %></li>
+  <li class="nav"><%= link_to "About", about_path %></li>
+  <li class="nav"><%= link_to "Contact", contact_path %></li>
 </ul>
 </nav>
 
 
 <div>
 <h2>User Login</h2>
-<%= form_with scope: :user, local: true do |form| %>
+<%= form_with scope: :user, url:login_path, local: true do |form| %>
   <p>
     <%= form.label :username %><br>
     <%= form.text_field :username %>
@@ -27,9 +27,8 @@
   </p>
  
   <p>
-    <%= form.submit "Log in" %>
+    <%= form.submit "Log in"%>
     
   </p>
  </div>
-
 <% end %>
