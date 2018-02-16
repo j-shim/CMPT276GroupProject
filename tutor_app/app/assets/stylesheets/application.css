@@ -25,3 +25,11 @@ input[type="button"], input[type="submit"],  {
     border-radius: $borderRadius;
     color: #fff;
 }
+
+.alert-danger {
+	color: red;
+}
+
+.alert-success {
+	color: green;
+}
