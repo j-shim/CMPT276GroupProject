@@ -15,7 +15,7 @@ Initialize a git repository in a new or existing directory
 
 $ cd my-project/
 $ git init
-$ heroku git:remote -a (heroku directory here)
+$ heroku git:remote -a tutor4me
 
 Deploy your application
 
@@ -29,6 +29,6 @@ Existing Git repository
 
 For existing repositories, simply add the heroku remote
 
-$ heroku git:remote -a (heroku directory here)
+$ heroku git:remote -a tutor4me
 
 
