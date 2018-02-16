@@ -33,3 +33,9 @@ input[type="button"], input[type="submit"],  {
 .alert-success {
 	color: green;
 }
+
+.name {
+	text-transform: capitalize;
+	display: initial;
+
+}
