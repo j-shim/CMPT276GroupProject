@@ -2,7 +2,7 @@ class User < ApplicationRecord
     #validates :username, presence: true, length: {maximum:50} #maximum length of the username is 50
     validates :firstname, presence: true, length: {minimum:2}
     validates :lastname, presence: true, length: {minimum:2}
-    validates :gender, presence: true, length: {minimum:4,maximum:6}
+    validates :gender, inclusion: ["male", "female"]
     validates :location, presence: true, length: {maximum:255}
     #before_save { email.downcase! }
   	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
