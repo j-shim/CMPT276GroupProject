@@ -10,7 +10,6 @@ $borderRadius: 3px;
 body {
   font: 100% $font-stack;
   color: $primary-color;
-  text-align:center;
   margin: 0 auto;
 }
 
@@ -24,6 +23,19 @@ input[type="button"], input[type="submit"],  {
     padding: 10px;
     border-radius: $borderRadius;
     color: #fff;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  padding: 5px;
+  width: 15%;
+}
+
+form {
+  text-align: center;
+}
+
+form p {
+  padding: 11px;
 }
 
 ul.nav {

@@ -1,16 +1,6 @@
 <% provide(:title, @user.username) %>
 
-<h1>Tutor 4 Me | Tutoring 4 Change</h1>
-
-<nav>
-<ul class="nav">
-<li class="nav"><%= link_to "Log Out",  logout_path%></li>
-<li class="nav"><%= link_to "Index",   root_path %></li>
-<li class="nav"><%= link_to "Help",   help_path %></li>
-<li class="nav"><%= link_to "About", about_path %></li>
-<li class="nav"><%= link_to "Contact", contact_path %></li>
-</ul>
-</nav>
+<%= render 'layouts/header' %>
 
 <div class="row">
 <aside class="col-md-4">

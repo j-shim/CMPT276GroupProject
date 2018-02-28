@@ -1,19 +1,7 @@
 <% provide(:title, "Help") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %> </title>
-  </head>
-  <body>
-  <h1>Tutor 4 Me | Tutoring 4 Change</h1>
-  <nav>
-  <ul class="nav">
-    <li class="nav"><%= link_to "Index",   root_path %></li>
-    <li class="nav"><%= link_to "Help",   help_path %></li>
-    <li class="nav"><%= link_to "About", about_path %></li>
-    <li class="nav"><%= link_to "Contact", contact_path %></li>
-  </ul>
-  </nav>
-    <h1>Help</h1>
+<%= render 'layouts/header' %>
+    <h2 id="page-title">Help</h2>
+    <h3>For clients: </h3>
+    <p>If you don't have an account yet, please <%= link_to "create an account", signup_path %> first.</p>
   </body>
 </html>

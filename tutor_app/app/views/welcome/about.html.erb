@@ -1,19 +1,6 @@
 <% provide(:title, "About") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %> </title>
-  </head>
-  <body>
-  <h1>Tutor 4 Me | Tutoring 4 Change</h1>
-  <nav>
-  <ul class="nav">
-    <li class="nav"><%= link_to "Index",   root_path %></li>
-    <li class="nav"><%= link_to "Help",   help_path %></li>
-    <li class="nav"><%= link_to "About", about_path %></li>
-    <li class="nav"><%= link_to "Contact", contact_path %></li>
-  </ul>
-  </nav>
-    <h1>About Us</h1>
+<%= render 'layouts/header' %>
+    <h2 id="page-title">About Tutor 4 Me</h2>
+    <p>Tutor 4 Me is an application that is an extension of Tutoring 4 Change, where it allows students and parents to seek for one of our qualified tutors. </p>
   </body>
 </html>

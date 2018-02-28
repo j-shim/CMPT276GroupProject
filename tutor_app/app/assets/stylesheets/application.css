@@ -14,17 +14,48 @@
  *= require_self
  */
 
+ @import "welcome.scss"
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  margin: 0 auto;
+
+}
+
  div {
  	margin: 0 auto;
  }
 
-input[type="button"], input[type="submit"],  {
+ h1,h2,h3,h4,h5,h6 {
+ 	padding: 20px;
+ 	margin: 0 auto;
+ 	margin-bottom: 10px;
+ }
+
+ p {
+ 	margin: 0px 20px 0px 20px;
+ }
+
+ #page-title {
+ 	background: #f2f2f2;
+ 	color: #09AA4B;
+ }
+
+input[type="button"], input[type="submit"] {
 	border-style: none;
-    background-color: $green;
+    background-color: #09AA4B;;
     padding: 10px;
-    border-radius: $borderRadius;
     color: #fff;
+    font-size: 1em;
 }
+
+#error_explanation {
+	color: red;
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+}
+    
 
 .alert-danger {
 	color: red;
