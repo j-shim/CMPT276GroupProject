@@ -2,20 +2,22 @@
 <%= render 'layouts/header' %>
 <div class="row">
 <aside class="col-md-4">
-	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
   <section class="user_info">
+  	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
   	<h2>Profile: </h2>
     <p><strong>Email address: </strong><%= @user.username %></p>
     <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
-    <button><%= link_to "Update profile",  edit_user_path %></button>
+    <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
   </section>
 
   <section class="tutor_session">
+  	<h3>Create new tutor session:</h3>
   <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
-    <div class="field">
-      <%= f.text_field :subject %>
-      <%= f.datetime_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %>
-    </div>
+    <!-- <div class="field"> -->
+      <%= f.label :subject %>
+      <%= f.text_field :subject %></br>
+      <%= f.datetime_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %><br>
+    <!-- </div> -->
     <%= f.submit "Create"%>
   <% end %>
   </section>
@@ -23,11 +25,11 @@
 </div>
 
 
-<div class="tutor_session">
+<section class="tutor_session">
+<h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
 <% if @user.tutor_sessions.any? %>
-  <h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
   <ol class="sessions">
   <%= render @user.tutor_sessions %>
   </ol>
   <% end %>
-</div>
+</section>

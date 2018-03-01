@@ -13,8 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
- @import "welcome.scss"
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
@@ -41,12 +39,21 @@ body {
  	color: #09AA4B;
  }
 
-input[type="button"], input[type="submit"] {
+input[type="button"], input[type="submit"], button {
 	border-style: none;
     background-color: #09AA4B;;
     padding: 10px;
     color: #fff;
     font-size: 1em;
+}
+
+button a {
+	text-decoration: none;
+	color: #fff;
+}
+
+button {
+	margin-top: 10px;
 }
 
 #error_explanation {
