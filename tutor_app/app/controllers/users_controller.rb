@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tutor_session = current_user.tutor_sessions.build if logged_in?    
     #debugger #used to get debugging information
   end
 

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :tutor_sessions, dependent: :destroy
     #validates :username, presence: true, length: {maximum:50} #maximum length of the username is 50
     validates :firstname, presence: true, length: {minimum:2}
     validates :lastname, presence: true, length: {minimum:2}

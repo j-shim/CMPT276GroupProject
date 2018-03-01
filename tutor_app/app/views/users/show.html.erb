@@ -3,9 +3,30 @@
 <%= render 'layouts/header' %>
 
 <div class="row">
-<aside class="col-md-4">
+<aside>
   <section class="user_info">
     <strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong>
   </section>
+
+  <section class="tutor_session">
+  <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
+    <div class="field">
+      <%= f.text_field :subject %>
+      <%= f.date_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %>
+    </div>
+    <%= f.submit "Create"%>
+  <% end %>
+  </section>
 </aside>
+</div>
+
+
+
+<div class="tutor_session">
+<% if @user.tutor_sessions.any? %>
+  <h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
+  <ol class="sessions">
+  <%= render @user.tutor_sessions %>
+  </ol>
+  <% end %>
 </div>
