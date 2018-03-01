@@ -1,51 +1,3 @@
-<<<<<<< HEAD
-<% provide(:title, "Edit user") %>
-<%= render 'layouts/header' %>
-<h2 id="page-title">Update your profile</h2>
-<div class="row">
-    <%= form_for(@user) do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert alert-danger">
-          The form contains <%= pluralize(@user.errors.count, "error") %>.
-        </div>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <p><%= f.label :"First name " %>
-        <%= f.text_field :firstname%>
-    </p>
-      
-    <p>
-      <%= f.label :"Last name" %>
-      <%= f.text_field :lastname%>
-    </p>
-    <p>
-      <%= f.label :username %>
-      <%= f.email_field :username%>
-    </p>
-    <p>
-      <%= f.label :location %>
-      <%= f.text_field :location%>
-    </p>
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password%>
-    </p>
-    <p>
-      <%= f.submit "Save changes"%>
-    </p>
-    <% end %>
-    <div class="gravatar_edit">
- 
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
-  </div>
-=======
 <% provide(:title, "Edit user") %>
 <%= render 'layouts/header' %>
 <h2 id="page-title">Update your profile</h2>
@@ -100,5 +52,4 @@
       <a href="http://gravatar.com/emails" target="_blank">change</a>
     </div>
   </div>
->>>>>>> 80b303ccdfa703826809565a64a13835eae12b78
 </div>
