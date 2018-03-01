@@ -1,25 +1,26 @@
 <% provide(:title, @user.username) %>
-
 <%= render 'layouts/header' %>
-
 <div class="row">
-<aside>
+<aside class="col-md-4">
+	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
   <section class="user_info">
-    <strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong>
+  	<h2>Profile: </h2>
+    <p><strong>Email address: </strong><%= @user.username %></p>
+    <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
+    <button><%= link_to "Update profile",  edit_user_path %></button>
   </section>
 
   <section class="tutor_session">
   <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
     <div class="field">
       <%= f.text_field :subject %>
-      <%= f.date_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %>
+      <%= f.datetime_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %>
     </div>
     <%= f.submit "Create"%>
   <% end %>
   </section>
 </aside>
 </div>
-
 
 
 <div class="tutor_session">
