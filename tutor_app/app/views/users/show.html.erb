@@ -31,5 +31,7 @@
   <ol class="sessions">
   <%= render @user.tutor_sessions %>
   </ol>
+  <% else %>
+  <p>You currently have no upcoming tutor sessions. Add a tutor session above.</p>
   <% end %>
 </section>

@@ -44,7 +44,8 @@ input[type="button"], input[type="submit"], button {
     background-color: #09AA4B;;
     padding: 10px;
     color: #fff;
-    font-size: 1em;
+    font-size: 1em;,
+    border-radius: 3px;
 }
 
 button a {
