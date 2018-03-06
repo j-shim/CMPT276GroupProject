@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def google_map(center)
+  "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
+end
+
   private
   def user_params
     params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location, :role)

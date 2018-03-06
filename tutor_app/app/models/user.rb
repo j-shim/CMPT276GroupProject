@@ -24,4 +24,6 @@ class User < ApplicationRecord
 	  #   @password ||= Password.new(password_hash)
 	  # end
 
+    geocoded_by :location
+
 end
