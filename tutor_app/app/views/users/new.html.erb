@@ -20,7 +20,7 @@
       <%= form.label :"first name" %><br>
       <%= form.text_field :firstname %>
     </p>
-	
+
     <p>
 	   <%= form.label :"last name" %><br>
      <%= form.text_field :lastname %>
@@ -37,17 +37,21 @@
       <%= form.label :location %><br>
       <%= form.text_field :location %>
     </p>
-	
+
+    <p >
+      <%= form.select :role, ["Tutor", "Student", "Admin"]%>
+    </p >
+
     <p>
       <%= form.label :"email address" %><br>
       <%= form.email_field :username %>
     </p>
-	
+
     <p>
       <%= form.label :password %><br>
       <%= form.password_field :password %>
     </p>
-	
+
     <p>
       <%= form.submit "Sign Up" %>
     </p>

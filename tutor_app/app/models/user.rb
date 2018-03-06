@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :lastname, presence: true, length: {minimum:2}
     validates :gender, inclusion: ["male", "female"]
     validates :location, presence: true, length: {maximum:255}
+    validates :role, presence: ["Tutor", "Student", "Admin"]
     #before_save { email.downcase! }
   	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   	validates :username, presence: true, length: { maximum: 255 },
@@ -23,4 +24,4 @@ class User < ApplicationRecord
 	  #   @password ||= Password.new(password_hash)
 	  # end
 
-end 
+end
