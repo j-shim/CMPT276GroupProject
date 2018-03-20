@@ -24,7 +24,6 @@
 </aside>
 </div>
 
-
 <section class="tutor_session">
 <h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
 <% if @user.tutor_sessions.any? %>
@@ -33,6 +32,14 @@
   </ol>
   <% else %>
   <p>You currently have no upcoming tutor sessions. Add a tutor session above.</p>
+  <% end %>
+</section>
+
+<section id="tutor_student">
+  <% if @user.role == "Student" %>
+  <h3> Tutor(s): </h3>
+  <% elsif @user.role == "Tutor" %>
+  <h3>Student(s): </h3>
   <% end %>
 </section>
 
