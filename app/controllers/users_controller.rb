@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      if @user.role == "Tutor"
+        @tutor = @user.tutors.create(attributes = { school: "Please update school name"})
+      elsif @user.role == "Student"
+        @student = @user.students.create(attributes = {age: 5})
+      end
       log_in @user
       redirect_to @user
     else
@@ -35,10 +40,10 @@ class UsersController < ApplicationController
 
   def google_map(center)
   "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
-end
+  end
 
   private
   def user_params
-    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location, :role)
+    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level)
   end
 end

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319213226) do
+ActiveRecord::Schema.define(version: 20180325183229) do
+
+  create_table "students", primary_key: "user_id", force: :cascade do |t|
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id", unique: true
+  end
 
   create_table "tutor_sessions", force: :cascade do |t|
     t.string "subject"
@@ -20,6 +27,22 @@ ActiveRecord::Schema.define(version: 20180319213226) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_tutor_sessions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tutor_sessions_on_user_id"
+  end
+
+  create_table "tutors", primary_key: "user_id", force: :cascade do |t|
+    t.string "school"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tutors_on_user_id", unique: true
+  end
+
+  create_table "tutors_students", id: false, force: :cascade do |t|
+    t.integer "tutor_id"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_tutors_students_on_student_id"
+    t.index ["tutor_id"], name: "index_tutors_students_on_tutor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,6 +55,7 @@ ActiveRecord::Schema.define(version: 20180319213226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "education_level"
   end
 
 end

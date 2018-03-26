@@ -3,11 +3,19 @@
 <div class="row">
 <aside class="col-md-4">
   <section class="user_info">
-  	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
-  	<h2>Profile: </h2>
-    <p><strong>Email address: </strong><%= @user.username %></p>
-    <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
-    <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
+    	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
+    	<h2>Profile: </h2>
+      <p><strong>Account type: </strong><%= @user.role %></p></br>
+      <p><strong>Full name: </strong><span class="name"><%= @user.firstname + " " + @user.lastname %></span></p>
+      <p><strong>Email address: </strong><%= @user.username %></p>
+      <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
+      <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
+
+      <% if @user.role == "Tutor" %>
+        <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
+      <% end %>
+
+      <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
   </section>
 
   <section class="tutor_session">
