@@ -1,6 +1,5 @@
 <% provide(:title, @user.username) %>
 <%= render 'layouts/header' %>
-<div class="row">
 <aside class="col-md-4">
   <section class="user_info">
     	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
@@ -12,12 +11,6 @@
       <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
 
       <% if @user.role == "Tutor" %>
-        </br>
-        <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
-        <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
-      <% end %>
-
-      <% if @user.role == "Student" %>
         </br>
         <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
         <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
@@ -50,13 +43,14 @@
 <section id="tutor_student">
   <% if @user.role == "Student" %>
   <h3> Tutor(s): </h3>
+  <p>Find a tutor now</p>
+
   <% elsif @user.role == "Tutor" %>
   <h3>Student(s): </h3>
   <% end %>
 </section>
 
 </aside>
-</div>
 
 <style>
      #map {

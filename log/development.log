@@ -6650,3 +6650,1027 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/about" for 127.0.0.1 at 2018-03-27 10:31:06 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#about as HTML
+  Rendering welcome/about.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (39.9ms)
+  Rendered welcome/about.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 309ms (Views: 297.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-03-27 10:32:00 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.5ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["user_id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["user_id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["user_id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (86.7ms)
+Completed 200 OK in 304ms (Views: 136.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-03-27 10:38:07 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-27 10:38:07 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 158ms (Views: 152.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-27 10:38:18 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G2VnBhHSHd0xbA+XzOWTsLn2lDff7+A+i1JG5TFQQ6kNiDS+ytMkTDT6zX1zpJp/P9um4uXiTRLEh2eOQUCjgg==", "user"=>{"username"=>"ronniehung@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ronniehung@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 76ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 10:38:18 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.6ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=1 [WHERE "tutors"."user_id" = ?]):
+  
+app/views/users/show.html.erb:22:in `_app_views_users_show_html_erb__1135294816566646546_70148783499420'
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 10:38:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (158.9ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.3ms)
+  Rendered users/show.html.erb within layouts/application (272.4ms)
+Completed 200 OK in 326ms (Views: 161.8ms | ActiveRecord: 159.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 10:46:33 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (0.8ms)
+  Rendered users/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 43ms (Views: 37.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 10:52:48 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 1.6ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+ "Our Tutors",  tutors_path) );@output_buffer.safe_append='<
+                              ^):
+  
+app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__416452655636426765_70342332606260'
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 10:53:10 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (240.5ms)
+  Rendered users/show.html.erb within layouts/application (243.7ms)
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `tutors_path' for #<#<Class:0x007ff3b654f950>:0x007ff3b64fc520>
+Did you mean?  tutor_session_path):
+    4: 		  <% if logged_in? %>
+    5: 		  	<li class="nav"><%= link_to "Log Out",  logout_path %></li>
+    6: 		    <li class="nav"><%= link_to "Home",  user_path(:id => @current_user.id) %></li>
+    7: 		    <li class="nav"><%= link_to "Our Tutors",  tutors_path %></li>
+    8: 
+    9: 		  <% else %>
+   10: 		    <li class="nav"><%= link_to "Log In",   root_path %></li>
+  
+app/views/layouts/_header.html.erb:7:in `_app_views_layouts__header_html_erb___1205583573787390729_70342356198960'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__416452655636426765_70342356232160'
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 10:54:34 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (233.6ms)
+  Rendered users/show.html.erb within layouts/application (236.6ms)
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `tutors_path' for #<#<Class:0x007ff3b3d201f0>:0x007ff3b3d13658>
+Did you mean?  tutor_session_path):
+    4: 		  <% if logged_in? %>
+    5: 		  	<li class="nav"><%= link_to "Log Out",  logout_path %></li>
+    6: 		    <li class="nav"><%= link_to "Home",  user_path(:id => @current_user.id) %></li>
+    7: 		    <li class="nav"><%= link_to "Our Tutors",  tutors_path %></li>
+    8: 
+    9: 		  <% else %>
+   10: 		    <li class="nav"><%= link_to "Log In",   root_path %></li>
+  
+app/views/layouts/_header.html.erb:7:in `_app_views_layouts__header_html_erb___1205583573787390729_70342335156380'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb__416452655636426765_70342335333900'
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 11:18:25 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (217.9ms)
+  Rendered users/show.html.erb within layouts/application (223.6ms)
+Completed 500 Internal Server Error in 305ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `tutors_path' for #<#<Class:0x007f9a66ccf738>:0x007f9a66ecccc0>
+Did you mean?  tutor_session_path):
+    4: 		  <% if logged_in? %>
+    5: 		  	<li class="nav"><%= link_to "Log Out",  logout_path %></li>
+    6: 		    <li class="nav"><%= link_to "Home",  user_path(:id => @current_user.id) %></li>
+    7: 		    <li class="nav"><%= link_to "Our Tutors",  tutors_path %></li>
+    8: 
+    9: 		  <% else %>
+   10: 		    <li class="nav"><%= link_to "Log In",   root_path %></li>
+  
+app/views/layouts/_header.html.erb:7:in `_app_views_layouts__header_html_erb__330579052586749332_70150570624860'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___977659376987276865_70150564226460'
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 11:20:22 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (231.9ms)
+  Rendered users/show.html.erb within layouts/application (234.7ms)
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `tutors_path' for #<#<Class:0x007f9a66ccf738>:0x007f9a66aee9c8>
+Did you mean?  tutor_session_path):
+    4: 		  <% if logged_in? %>
+    5: 		  	<li class="nav"><%= link_to "Log Out",  logout_path %></li>
+    6: 		    <li class="nav"><%= link_to "Home",  user_path(:id => @current_user.id) %></li>
+    7: 		    <li class="nav"><%= link_to "Our Tutors",  tutors_path %></li>
+    8: 
+    9: 		  <% else %>
+   10: 		    <li class="nav"><%= link_to "Log In",   root_path %></li>
+  
+app/views/layouts/_header.html.erb:7:in `_app_views_layouts__header_html_erb__330579052586749332_70150559414220'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___977659376987276865_70150562245480'
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 11:21:00 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTutorSession Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.8ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (4.3ms)
+  Rendered users/show.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 276ms (Views: 240.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:21:25 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered welcome/tutors.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 113ms (Views: 110.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2018-03-27 11:21:28 -0700
+Processing by WelcomeController#contact as HTML
+  Rendering welcome/contact.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered welcome/contact.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 54ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:21:29 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered welcome/tutors.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 11:21:30 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.8ms)
+  Rendered users/show.html.erb within layouts/application (188.7ms)
+Completed 200 OK in 288ms (Views: 279.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2018-03-27 11:21:31 -0700
+Processing by WelcomeController#contact as HTML
+  Rendering welcome/contact.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered welcome/contact.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 53ms (Views: 48.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2018-03-27 11:21:32 -0700
+Processing by WelcomeController#about as HTML
+  Rendering welcome/about.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered welcome/about.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 54ms (Views: 49.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2018-03-27 11:21:33 -0700
+Processing by WelcomeController#contact as HTML
+  Rendering welcome/contact.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered welcome/contact.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 150ms (Views: 147.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:21:34 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (8.6ms)
+  Rendered welcome/tutors.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 80ms (Views: 75.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:25:39 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered welcome/tutors.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:37:24 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (25.3ms)
+  Rendered welcome/tutors.html.erb within layouts/application (30.2ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `venues' for nil:NilClass):
+    1: <% provide(:title, "Tutors") %>
+    2: <%= render 'layouts/header' %>
+    3: <h2 id="page-title">Our Tutors</h2>
+    4: <% @tutor.venues.each do |tutor| %>
+    5:   <%= tutor.firstname %>
+    6:   <%= tutor.lasttname %>
+    7: <% end %>
+  
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150572087180'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:38:01 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered welcome/tutors.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% provide(:title, "Tutors") %>
+    2: <%= render 'layouts/header' %>
+    3: <h2 id="page-title">Our Tutors</h2>
+    4: <% @tutor.each do |tutor| %>
+    5:   <%= tutor.firstname %>
+    6:   <%= tutor.lasttname %>
+    7: <% end %>
+  
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150599718740'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:41:57 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" ORDER BY "tutors"."user_id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered welcome/tutors.html.erb within layouts/application (30.7ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for #<Tutor:0x007f9a69bb75a0>):
+    2: <%= render 'layouts/header' %>
+    3: <h2 id="page-title">Our Tutors</h2>
+    4: <% Tutor.find_each do |tutor| %>
+    5:   <%= tutor.firstname %>
+    6:   <%= tutor.lasttname %>
+    7: <% end %>
+  
+app/views/welcome/tutors.html.erb:5:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150588278700'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150588278700'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:45:05 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  Rendered welcome/tutors.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/welcome/tutors.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/welcome/tutors.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:45:29 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  Rendered welcome/tutors.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/welcome/tutors.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/welcome/tutors.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:45:43 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered welcome/tutors.html.erb within layouts/application (216.0ms)
+Completed 500 Internal Server Error in 224ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `tutor' for #<#<Class:0x007f9a67dc2680>:0x007f9a6c81acc8>):
+    1: <% provide(:title, "Tutors") %>
+    2: <%= render 'layouts/header' %>
+    3: <h2 id="page-title">Our Tutors</h2>
+    4: <% User.find_by role: 'Tutor' |tutor| %>
+    5: <!--  -->
+  
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150611065640'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:46:50 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."role" = ? LIMIT ?[0m  [["role", "Tutor"], ["LIMIT", 1]]
+  Rendered welcome/tutors.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:50:45 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."role" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["role", "Tutor"], ["LIMIT", 1000]]
+  Rendered welcome/tutors.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:51:24 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."role" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["role", "Tutor"], ["LIMIT", 1000]]
+  Rendered welcome/tutors.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:51:38 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."role" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["role", "Tutor"], ["LIMIT", 1000]]
+  Rendered welcome/tutors.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:55:47 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."role" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["role", "Tutor"], ["LIMIT", 1000]]
+  Rendered welcome/tutors.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for #<Array:0x007f9a69b31bf8>
+Did you mean?  first):
+    2: <%= render 'layouts/header' %>
+    3: <h2 id="page-title">Our Tutors</h2>
+    4: <% User.where(role: "Tutor").find_in_batches do |user| %>
+    5:  <p><% user.firstname %></p>
+    6: <% end %>
+    7: <!--  -->
+  
+app/views/welcome/tutors.html.erb:5:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150587628280'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150587628280'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 11:57:52 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."role" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["role", "Tutor"], ["LIMIT", 1000]]
+  Rendered welcome/tutors.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for #<Array:0x007f9a69d566e0>
+Did you mean?  first):
+    2: <%= render 'layouts/header' %>
+    3: <h2 id="page-title">Our Tutors</h2>
+    4: <% User.where(role: "Tutor").find_in_batches do |user| %>
+    5:  <p><%= user.firstname %></p>
+    6: <% end %>
+    7: <!--  -->
+  
+app/views/welcome/tutors.html.erb:5:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150588919800'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150588919800'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:05:13 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered welcome/tutors.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:05:34 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:06:34 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:06:58 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:07:30 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:07:52 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (12.5ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `school' for #<User:0x007f9a69f28338>):
+    4: <% User.where(role: "Tutor").each do |user| %>
+    5:  <h3 class="name"><%= user.firstname + " " + user.lastname%></h3>
+    6:  <p><%= user.education_level %></p>
+    7:  <p><%= user.school %></p>
+    8: </br>
+    9: <% end %>
+   10: <!--  -->
+  
+app/views/welcome/tutors.html.erb:7:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150567569540'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150567569540'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:08:33 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `tutor' for #<User:0x007f9a6b155bf0>
+Did you mean?  tutors
+               tutors=):
+    4: <% User.where(role: "Tutor").each do |user| %>
+    5:  <h3 class="name"><%= user.firstname + " " + user.lastname%></h3>
+    6:  <p><%= user.education_level %></p>
+    7:  <p><%= user.tutor.find(user.id).school %></p>
+    8: </br>
+    9: <% end %>
+   10: <!--  -->
+  
+app/views/welcome/tutors.html.erb:7:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150571055100'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150571055100'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:08:41 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  Rendered welcome/tutors.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=3 [WHERE "tutors"."user_id" = ?]):
+  
+app/views/welcome/tutors.html.erb:7:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150599289080'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150599289080'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:10:31 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+  Rendered welcome/tutors.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `school' for #<Tutor::ActiveRecord_Relation:0x007f9a6b199580>):
+    4: <% User.where(role: "Tutor").each do |user| %>
+    5:  <h3 class="name"><%= user.firstname + " " + user.lastname%></h3>
+    6:  <p><%= user.education_level %></p>
+    7:  <p><%= Tutor.where(user_id: user.id).school %></p>
+    8: </br>
+    9: <% end %>
+   10: <!--  -->
+  
+app/views/welcome/tutors.html.erb:7:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150599369680'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150599369680'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:10:43 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:13:25 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  Rendered welcome/tutors.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/welcome/tutors.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/welcome/tutors.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:13:31 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  Rendered welcome/tutors.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/welcome/tutors.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/welcome/tutors.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:13:45 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors"[0m
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors"[0m
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors"[0m
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors"[0m
+  Rendered welcome/tutors.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 40ms (Views: 36.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:14:38 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", nil], ["LIMIT", 1]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'={:user_id=>2}):
+  
+app/views/welcome/tutors.html.erb:7:in `block in _app_views_welcome_tutors_html_erb___1658888294613364214_70150588706320'
+app/views/welcome/tutors.html.erb:4:in `_app_views_welcome_tutors_html_erb___1658888294613364214_70150588706320'
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:16:11 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:16:32 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:18:44 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:19:12 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.6ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.7ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 55ms (Views: 50.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:19:52 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:20:14 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:21:21 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  Rendered welcome/tutors.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:21:27 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 35ms (Views: 31.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:22:20 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/ourtutors" for 127.0.0.1 at 2018-03-27 12:23:23 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ourtutors"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:23:30 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (22.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 68ms (Views: 65.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-03-27 12:23:39 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.7ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mTutorSession Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.7ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.6ms)
+  Rendered users/show.html.erb within layouts/application (88.2ms)
+Completed 200 OK in 144ms (Views: 117.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:23:40 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 209ms (Views: 203.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:24:39 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:25:04 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:25:24 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 33ms (Views: 30.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:25:39 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 49ms (Views: 45.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:31:44 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (26.6ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 233ms (Views: 219.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:31:59 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:32:25 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 62ms (Views: 58.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:32:47 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 74ms (Views: 69.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 12:33:03 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.9ms)
+
+

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/about', to:'welcome#about'
   get '/index', to:'welcome#index'
   get '/contact', to:'welcome#contact'
+  get '/tutors', to:'welcome#tutors'
   get  '/signup',  to: 'users#new'
   post  '/signup',  to: 'users#create'
   resources :users

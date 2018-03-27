@@ -8,6 +8,9 @@ class WelcomeController < ApplicationController
   def about
   end
 
+  def tutors
+  end
+
   def contact
   end
 end
