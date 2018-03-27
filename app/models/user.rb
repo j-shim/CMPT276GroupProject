@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :tutors, autosave: true
     has_many :students, autosave: true
+    accepts_nested_attributes_for :tutors
+    accepts_nested_attributes_for :students
     has_many :admins
     has_many :tutor_sessions, dependent: :destroy
     after_create :make_subuser_type
@@ -20,12 +22,5 @@ class User < ApplicationRecord
   	validates :password, presence: true, length: {minimum:6} #minimum length of the password is 6
 
     geocoded_by :location
-
-    def make_subuser_type
-      if :role == "Tutor"
-        tutors.create
-      end
-        
-    end
 
 end

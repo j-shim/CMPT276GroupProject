@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tutor_session = current_user.tutor_sessions.build if logged_in?
+    if @user.role == "Tutor"
+       @tutor = @user.tutors.find(@user.id)
+    end
     #debugger #used to get debugging information
   end
 
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       if @user.role == "Tutor"
-        @tutor = @user.tutors.create(attributes = { school: "Please update school name"})
+        @tutor = @user.tutors.create(attributes = { school: "Please update school name", rate: 10.0})
       elsif @user.role == "Student"
         @student = @user.students.create(attributes = {age: 5})
       end
@@ -26,6 +29,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # @tutor = @user.tutors.find(@user.id)
   end
 
   def update
@@ -44,6 +48,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level)
+    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level,tutors_attributes: [:id, :school, :rate])
   end
 end

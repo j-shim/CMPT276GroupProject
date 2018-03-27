@@ -12,36 +12,40 @@
       <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
 
       <% if @user.role == "Tutor" %>
+        </br>
         <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
+        <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
+      <% end %>
+
+      <% if @user.role == "Student" %>
+        </br>
+        <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
+        <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
       <% end %>
 
       <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
   </section>
 
   <section class="tutor_session">
+  <h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
+  <% if @user.tutor_sessions.any? %>
+    <ol class="sessions">
+    <%= render @user.tutor_sessions %>
+    </ol>
+    <% else %>
+    <p>You currently have no upcoming tutor sessions. Add a tutor session below.</p>
+    <% end %>
+  </section>
+
+  <section class="tutor_session">
   	<h3>Create new tutor session:</h3>
   <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
-    <!-- <div class="field"> -->
       <%= f.label :subject %>
       <%= f.text_field :subject %></br>
       <%= f.datetime_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %><br>
-    <!-- </div> -->
     <%= f.submit "Create"%>
   <% end %>
   </section>
-</aside>
-</div>
-
-<section class="tutor_session">
-<h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
-<% if @user.tutor_sessions.any? %>
-  <ol class="sessions">
-  <%= render @user.tutor_sessions %>
-  </ol>
-  <% else %>
-  <p>You currently have no upcoming tutor sessions. Add a tutor session above.</p>
-  <% end %>
-</section>
 
 <section id="tutor_student">
   <% if @user.role == "Student" %>
@@ -51,6 +55,8 @@
   <% end %>
 </section>
 
+</aside>
+</div>
 
 <style>
      #map {
