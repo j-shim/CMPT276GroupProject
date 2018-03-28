@@ -1,7 +1,8 @@
-<li id="tutor_session-<%= tutor_session.id %>">
+<li id="tutor_session-<%= tutor_session.id %>" class="tutor_session_list">
 <span class="subject"><%= tutor_session.subject %></span>
-<span class="date"><%= tutor_session.date %></span>
-<span class="timestamp">
+<span class="date"><%= tutor_session.date.strftime("%a, %B %d, %Y") %></span>
+<span class="time"><%= tutor_session.starttime.time.strftime("%I:%M %p") %> - <%= tutor_session.endtime.time.strftime("%I:%M %p") %></span>
+<!-- <span class="timestamp">
   Created <%= time_ago_in_words(tutor_session.created_at) %> ago.
-</span>
+</span> -->
 </li>

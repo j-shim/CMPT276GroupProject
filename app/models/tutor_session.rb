@@ -6,4 +6,6 @@ class TutorSession < ApplicationRecord
   validates :user_id, presence: true
   validates :subject, presence: true, length: { maximum: 30 }
   validates :date, presence: true
+  validates :starttime, presence: true
+  validates :endtime, presence: true
 end

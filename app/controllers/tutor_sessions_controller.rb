@@ -22,6 +22,6 @@ class TutorSessionsController < ApplicationController
 
     private
         def sessions_params
-          params.require(:tutor_session).permit(:subject,:date)
+          params.require(:tutor_session).permit(:subject,:date,:starttime,:endtime)
         end
 end

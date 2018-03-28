@@ -20,7 +20,7 @@
   </section>
 
   <section class="tutor_session">
-  <h3>Sessions (<%= @user.tutor_sessions.count %>)</h3>
+  <h2>Sessions (<%= @user.tutor_sessions.count %>)</h2>
   <% if @user.tutor_sessions.any? %>
     <ol class="sessions">
     <%= render @user.tutor_sessions %>
@@ -33,20 +33,41 @@
   <section class="tutor_session">
   	<h3>Create new tutor session:</h3>
   <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
-      <%= f.label :subject %>
-      <%= f.text_field :subject %></br>
-      <%= f.datetime_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year', hour: 'Select hour',minute: 'Select minute'} %><br>
-    <%= f.submit "Create"%>
+      <p>
+        <%= f.label :subject %>
+        <%= f.text_field :subject %>
+      </p>  
+      <p>
+        <%= f.label :date %>
+        <%= f.date_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year'} %>
+      </p> 
+      <p>
+        <%= f.label :"Start time" %>
+        <%= f.time_select :starttime, {ampm: true} %> </br>
+        <%= f.label :"End time" %>
+        <%= f.time_select :endtime, {ampm: true} %>
+      </p>
+      <p><%= f.submit "Create"%></p> 
   <% end %>
   </section>
 
-<section id="tutor_student">
+<section id="progress">
   <% if @user.role == "Student" %>
-  <h3> Tutor(s): </h3>
+  <h2> Total amount due: </h2>
   <p>Find a tutor now</p>
 
   <% elsif @user.role == "Tutor" %>
-  <h3>Student(s): </h3>
+  <h2>Total amount earned: </h2>
+  <% end %>
+</section>
+
+<section id="tutor_student">
+  <% if @user.role == "Student" %>
+  <h2> Tutor(s): </h2>
+  <p>Find a tutor now</p>
+
+  <% elsif @user.role == "Tutor" %>
+  <h2>Student(s): </h2>
   <% end %>
 </section>
 

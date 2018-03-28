@@ -7674,3 +7674,2160 @@ Processing by WelcomeController#tutors as HTML
 Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/logout" for 127.0.0.1 at 2018-03-27 15:09:15 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-27 15:09:15 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (20.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 285ms (Views: 281.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-27 15:09:31 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v1mAyA+s9jHA1hsFxluZn4tCNpw0m3DgOrRNN2KotI/1Zj+2LdnkzPbR9W2gIORmznEZm0NXY/dHySmQg9UjQQ==", "user"=>{"username"=>"jdoe@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jdoe@email.com"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 122ms (Views: 31.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-27 15:09:40 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i+UEBhSiHdeKcv/M8saAo+0Rf76mJFw5LQfm3GwUcyHB2rt4NtcPKrx1EaSUvf1aqCJQudHoTy5QeoJ7jWnk7w==", "user"=>{"username"=>"jdoe@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jdoe@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 72ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-27 15:09:40 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.6ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutorSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 2]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.6ms)
+  Rendered users/show.html.erb within layouts/application (44.2ms)
+Completed 200 OK in 160ms (Views: 85.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2018-03-27 15:09:44 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered users/edit.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 171ms (Views: 164.9ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2018-03-27 15:10:16 -0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vZ8MaMk79ubFzHelDjeyzPe+xweWpwDxb5LuDmLiKWzzKSIHlANx9yT8fGnEbEnrIwsVz2qrei52VwIhw7NbtQ==", "user"=>{"tutors_attributes"=>{"0"=>{"school"=>"Simon Fraser University", "rate"=>"25", "id"=>"2"}}, "firstname"=>"john", "lastname"=>"doe", "username"=>"jdoe@email.com", "location"=>"vancouver", "education_level"=>"1st year university", "password"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = 2[0m  [["user_id", 2]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["username", "jdoe@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["username", "jdoe@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "education_level" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "$2a$10$stVX/YwXikNcwZQpgTtXFuj4ns97C/iQ8wvp7KkEHNogj/GVCt11u"], ["education_level", "1st year university"], ["updated_at", "2018-03-27 22:10:16.326053"], ["id", 2]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "tutors" SET "school" = ?, "rate" = ?, "updated_at" = ? WHERE "tutors"."user_id" = ?[0m  [["school", "Simon Fraser University"], ["rate", 25.0], ["updated_at", "2018-03-27 22:10:16.327864"], ["user_id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 82ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-27 15:10:16 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.6ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 2]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (0.6ms)
+  Rendered users/show.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 35ms (Views: 30.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 15:10:23 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 63ms (Views: 56.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-03-27 15:10:36 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-27 15:10:36 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 53ms (Views: 49.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-27 15:10:42 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xijfqIUrxTlTRATYn/IXX8uPPEs5qjwuyNHNtXeioqPQxYwQXir8qFbSxjIgsx6QTaIOngOnkQKHBOzeB7JCiA==", "user"=>{"username"=>"vlodge@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vlodge@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 71ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:10:42 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=3 [WHERE "tutors"."user_id" = ?]):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started POST "/login" for 127.0.0.1 at 2018-03-27 15:10:51 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tqkLSko7TmBfHiG7d6TylpFPJyUolXy7qyTlhu9ZhOX8lrQ0aE5cnWkZz9MR349v1HwIIl9Zb6zWWYEhDiQTKw==", "user"=>{"username"=>"vlodge@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vlodge@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 75ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:10:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=3 [WHERE "tutors"."user_id" = ?]):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started POST "/login" for 127.0.0.1 at 2018-03-27 15:11:18 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tqkLSko7TmBfHiG7d6TylpFPJyUolXy7qyTlhu9ZhOX8lrQ0aE5cnWkZz9MR349v1HwIIl9Zb6zWWYEhDiQTKw==", "user"=>{"username"=>"jj@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jj@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 74ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-03-27 15:11:18 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=4 [WHERE "tutors"."user_id" = ?]):
+  
+app/controllers/users_controller.rb:10:in `show'
+Started GET "/users/4" for 127.0.0.1 at 2018-03-27 15:12:05 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (16.3ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 4.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=4 [WHERE "tutors"."user_id" = ?]):
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___334183294543482395_70291272334100'
+Started GET "/users/4" for 127.0.0.1 at 2018-03-27 15:12:21 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (2.8ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (23.9ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 2.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=4 [WHERE "tutors"."user_id" = ?]):
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___334183294543482395_70291248435860'
+Started GET "/users/4" for 127.0.0.1 at 2018-03-27 15:16:08 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tutor with 'user_id'=4 [WHERE "tutors"."user_id" = ?]):
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___334183294543482395_70291282374600'
+Started GET "/users/4" for 127.0.0.1 at 2018-03-27 15:16:14 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 74ms (Views: 66.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/4/edit" for 127.0.0.1 at 2018-03-27 15:16:19 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/edit.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 135ms (Views: 129.5ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/4" for 127.0.0.1 at 2018-03-27 15:16:32 -0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eaQAKGfPUoBVanqRX1uBNMaqd4wEuk3cKb0wbn/UytghodjtveV9Kq4NzIzfe+Y2Cus14wE/cxYrmlLozZSAcA==", "user"=>{"tutors_attributes"=>{"0"=>{"school"=>"riverdale high", "rate"=>"22", "id"=>"4"}}, "firstname"=>"jughead", "lastname"=>"jones", "username"=>"jj@email.com", "location"=>"riverdale", "education_level"=>"Gr 12", "password"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = 4[0m  [["user_id", 4]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["username", "jj@email.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["username", "jj@email.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "$2a$10$gJ.Z7J78L6fBhxedfRve6eIkcm/plwzk2a2AeByl/qCCL36yWCPjS"], ["updated_at", "2018-03-27 22:16:32.580478"], ["id", 4]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "tutors" SET "school" = ?, "rate" = ?, "updated_at" = ? WHERE "tutors"."user_id" = ?[0m  [["school", "riverdale high"], ["rate", 22.0], ["updated_at", "2018-03-27 22:16:32.582824"], ["user_id", 4]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 84ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2018-03-27 15:16:32 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.7ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-03-27 15:16:39 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered welcome/tutors.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 120ms (Views: 113.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-03-27 15:16:45 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-27 15:16:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 74ms (Views: 70.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-27 15:16:53 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nwzDhGsZ1lszX0uUz7WaObv08tyVngYRpoCh1FNom7wkWC2yq1eyGlbv8Tsf9+nYMLhHkhb1TQJTyPsIV1CRQ==", "user"=>{"username"=>"vlodge@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vlodge@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 75ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:16:53 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.7ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:24:38 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (4.8ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (48.9ms)
+Completed 200 OK in 148ms (Views: 115.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:28:13 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.2ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 66ms (Views: 61.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:30:01 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.4ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 58ms (Views: 50.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:55:08 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.5) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.5) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "endtime" time[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180327223212"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:57:08 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.1ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (60.7ms)
+Completed 200 OK in 394ms (Views: 313.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 15:57:24 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (3.1ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 106ms (Views: 92.2ms | ActiveRecord: 1.9ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","date","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","date","user_id","created_at","updated_at","starttime","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","date","user_id","created_at","updated_at","starttime")
+                     SELECT "id","subject","date","user_id","created_at","updated_at","starttime" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","date","user_id","created_at","updated_at","starttime")
+                     SELECT "id","subject","date","user_id","created_at","updated_at","starttime" FROM "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","date","user_id","created_at","updated_at")
+                     SELECT "id","subject","date","user_id","created_at","updated_at" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20180327223212"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","date","user_id","created_at","updated_at")
+                     SELECT "id","subject","date","user_id","created_at","updated_at" FROM "tutor_sessions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at")
+                     SELECT "id","subject","user_id","created_at","updated_at" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180327223212"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "date" date[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "endtime" time[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20180327223212"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date DEFAULT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","date","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","date","starttime","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","starttime","endtime" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "date" date[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:01:41 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.5) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.5) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.5) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.5) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date DEFAULT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","date","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","date","starttime","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","starttime","endtime" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "date" date[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (1.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "date" date DEFAULT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","date","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","date","starttime","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","starttime","endtime" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180327223212"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditColumnsTutorSessions (20180327223212)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "date" date[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditDateColumnTutorSession (20180327230352)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","starttime","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","starttime","endtime" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "date" date[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditDateColumnTutorSession (20180327230352)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "starttime" time DEFAULT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","starttime","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","starttime","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","endtime" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","endtime" FROM "atutor_sessions"[0m
+  [1m[35m (5.4ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180327230352"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EditDateColumnTutorSession (20180327230352)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveTimeColumn (20180327230611)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "endtime" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id_and_created_at" ON "atutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_atutor_sessions_on_user_id" ON "atutor_sessions" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "atutor_sessions" ("id","subject","user_id","created_at","updated_at","endtime")
+                     SELECT "id","subject","user_id","created_at","updated_at","endtime" FROM "tutor_sessions"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "tutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tutor_sessions" ("id" integer NOT NULL PRIMARY KEY, "subject" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_atutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id" ON "tutor_sessions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tutor_sessions_on_user_id_and_created_at" ON "tutor_sessions" ("user_id", "created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("id","subject","user_id","created_at","updated_at")
+                     SELECT "id","subject","user_id","created_at","updated_at" FROM "atutor_sessions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atutor_sessions"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180327230611"]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTimeColumns (20180327230841)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "date" date[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "starttime" time[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tutor_sessions" ADD "endtime" time[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180327230841"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_students_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_students_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutor_sessions_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tutors_students_on_tutor_id' AND type='index'
+[0m
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:09:12 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (49.1ms)
+Completed 200 OK in 297ms (Views: 236.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:14:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:47: syntax error, unexpected '<', expecting ')'
+      </p>
+       ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:50: unknown regexp options - ct
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:50: unmatched close parenthesis: /p>
+    <%= f.submit "Create");@output_buffer.safe_append='
+'.freeze;   end 
+@output_buffer.safe_append='  </i
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:52: syntax error, unexpected '<'
+<section id="progress">
+ ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:54: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+fe_append='  <h2> Total amount due: </h2>
+                              ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:55: unknown regexp option - p
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:58: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+afe_append='  <h2>Total amount earned: </h2>
+                              ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:60: unknown regexp options - ct
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:62: syntax error, unexpected '<'
+<section id="tutor_student">
+ ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:64: syntax error, unexpected ':', expecting ')'
+.safe_append='  <h2> Tutor(s): </h2>
+                              ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:65: unknown regexp option - p
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:68: syntax error, unexpected ':', expecting ')'
+safe_append='  <h2>Student(s): </h2>
+                              ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:70: unknown regexp options - ct
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:72: syntax error, unexpected '<'
+</aside>
+ ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:81: unknown regexp options - tyl
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:83: syntax error, unexpected '<'
+   <div id="map"></div>
+    ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:83: syntax error, unexpected '<'
+   <div id="map"></div>
+                  ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:96: unknown regexp options - crpt
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:98: syntax error, unexpected '<'
+   <script async defer
+    ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:100: syntax error, unexpected '<'
+   </script>
+    ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:100: unterminated regexp meets end of file):
+  
+app/views/users/show.html.erb:47: syntax error, unexpected '<', expecting ')'
+app/views/users/show.html.erb:50: unknown regexp options - ct
+app/views/users/show.html.erb:50: unmatched close parenthesis: /p>
+app/views/users/show.html.erb:52: syntax error, unexpected '<'
+app/views/users/show.html.erb:54: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:55: unknown regexp option - p
+app/views/users/show.html.erb:58: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:60: unknown regexp options - ct
+app/views/users/show.html.erb:62: syntax error, unexpected '<'
+app/views/users/show.html.erb:64: syntax error, unexpected ':', expecting ')'
+app/views/users/show.html.erb:65: unknown regexp option - p
+app/views/users/show.html.erb:68: syntax error, unexpected ':', expecting ')'
+app/views/users/show.html.erb:70: unknown regexp options - ct
+app/views/users/show.html.erb:72: syntax error, unexpected '<'
+app/views/users/show.html.erb:81: unknown regexp options - tyl
+app/views/users/show.html.erb:83: syntax error, unexpected '<'
+app/views/users/show.html.erb:83: syntax error, unexpected '<'
+app/views/users/show.html.erb:96: unknown regexp options - crpt
+app/views/users/show.html.erb:98: syntax error, unexpected '<'
+app/views/users/show.html.erb:100: syntax error, unexpected '<'
+app/views/users/show.html.erb:100: unterminated regexp meets end of file
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:15:12 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 75ms (Views: 67.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:15:29 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (2.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 76ms (Views: 66.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:16:47 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.8ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 77ms (Views: 70.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:17:03 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.4ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 56ms (Views: 48.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:19:10 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.7ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (10.6ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 0..1)):
+    39:       </p>  
+    40:       <p>
+    41:         <%= f.label :date %>
+    42:         <%= f.select_date Date.today :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year'} %>
+    43:       </p> 
+    44:       <p>
+    45:         <%= f.label :"Start time" %>
+  
+app/views/users/show.html.erb:42:in `today'
+app/views/users/show.html.erb:42:in `block in _app_views_users_show_html_erb___2326734387170966855_70223586719940'
+app/views/users/show.html.erb:35:in `_app_views_users_show_html_erb___2326734387170966855_70223586719940'
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:19:23 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (129.5ms)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `select_date' for #<ActionView::Helpers::FormBuilder:0x007fbc67341928>
+Did you mean?  select):
+    39:       </p>  
+    40:       <p>
+    41:         <%= f.label :date %>
+    42:         <%= f.select_date :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year'} %>
+    43:       </p> 
+    44:       <p>
+    45:         <%= f.label :"Start time" %>
+  
+app/views/users/show.html.erb:42:in `block in _app_views_users_show_html_erb___2326734387170966855_70223618365800'
+app/views/users/show.html.erb:35:in `_app_views_users_show_html_erb___2326734387170966855_70223618365800'
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:19:31 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.1ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 71ms (Views: 61.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:21:50 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 128ms (Views: 81.6ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/tutor_sessions" for 127.0.0.1 at 2018-03-27 16:28:09 -0700
+Processing by TutorSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmYByLons/IZ0MUJLf2L3C9+tgjV1DYsMkL+af2CyuH0Wb62mFKhDy/XK2FLhvYlak2ZD6IYJTtPP5rOHP9dLw==", "tutor_session"=>{"subject"=>"English", "date(1i)"=>"2018", "date(2i)"=>"4", "date(3i)"=>"1", "starttime(1i)"=>"1", "starttime(2i)"=>"1", "starttime(3i)"=>"1", "starttime(4i)"=>"12", "starttime(5i)"=>"00", "endtime(1i)"=>"1", "endtime(2i)"=>"1", "endtime(3i)"=>"1", "endtime(4i)"=>"13", "endtime(5i)"=>"00"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("subject", "user_id", "created_at", "updated_at", "date", "starttime", "endtime") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["subject", "English"], ["user_id", 3], ["created_at", "2018-03-27 23:28:09.406093"], ["updated_at", "2018-03-27 23:28:09.406093"], ["date", "2018-04-01"], ["starttime", "0001-01-01 12:00:00"], ["endtime", "0001-01-01 13:00:00"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 13ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:28:09 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.3ms)
+  Rendered users/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 42ms (Views: 37.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:32:02 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.0ms)
+  Rendered users/show.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 46ms (Views: 40.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:35:49 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:46: syntax error, unexpected tSTRING_DEND, expecting ')'
+select :starttime, ampm: true} );@output_buffer.safe_append=
+                              ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:48: syntax error, unexpected tSTRING_DEND, expecting '}'
+hour',minute: 'Select minute'} );@output_buffer.safe_append=
+                              ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:105: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/ronniehung/Tutor_4_me/app/views/users/show.html.erb:107: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/users/show.html.erb:46: syntax error, unexpected tSTRING_DEND, expecting ')'
+app/views/users/show.html.erb:48: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/views/users/show.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+app/views/users/show.html.erb:105: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/users/show.html.erb:107: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:36:10 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (0.9ms)
+  Rendered users/show.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 48ms (Views: 42.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:36:40 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.1ms)
+  Rendered users/show.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 71ms (Views: 64.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/tutor_sessions" for 127.0.0.1 at 2018-03-27 16:37:23 -0700
+Processing by TutorSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jIlTfWUDpPUJl995KB+fiV00WdC4Jln6SiKNZ7GZdL/GtuwDR3a2CD+QMRFOZOJwGAd218/qSu03X+nAUOTjcQ==", "tutor_session"=>{"subject"=>"English", "date(1i)"=>"2018", "date(2i)"=>"4", "date(3i)"=>"10", "starttime(1i)"=>"2018", "starttime(2i)"=>"3", "starttime(3i)"=>"27", "starttime(4i)"=>"11", "starttime(5i)"=>"00", "endtime(1i)"=>"2018", "endtime(2i)"=>"3", "endtime(3i)"=>"27", "endtime(4i)"=>"12", "endtime(5i)"=>"00"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("subject", "user_id", "created_at", "updated_at", "date", "starttime", "endtime") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["subject", "English"], ["user_id", 3], ["created_at", "2018-03-27 23:37:23.900970"], ["updated_at", "2018-03-27 23:37:23.900970"], ["date", "2018-04-10"], ["starttime", "2018-03-27 11:00:00"], ["endtime", "2018-03-27 12:00:00"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 9ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:37:23 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (1.3ms)
+  Rendered users/show.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 51ms (Views: 45.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:38:30 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (5.9ms)
+  [1m[36mTutor Load (0.7ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (7.2ms)
+  Rendered users/show.html.erb within layouts/application (63.2ms)
+Completed 200 OK in 152ms (Views: 120.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:39:08 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (2.1ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (3.1ms)
+  Rendered users/show.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 95ms (Views: 88.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:42:25 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (1.9ms)
+  Rendered users/show.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 78ms (Views: 70.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 16:43:11 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (33.3ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (1.8ms)
+  Rendered users/show.html.erb within layouts/application (58.5ms)
+Completed 200 OK in 152ms (Views: 142.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 17:00:32 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (5.9ms)
+  [1m[36mTutor Load (0.5ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (1.5ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (15.0ms)
+  Rendered users/show.html.erb within layouts/application (82.5ms)
+Completed 200 OK in 179ms (Views: 149.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 17:00:42 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (1.6ms)
+  Rendered users/show.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 81ms (Views: 71.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 17:04:19 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (4.3ms)
+  Rendered users/show.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 69ms (Views: 62.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-03-27 17:05:59 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.1ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."created_at" DESC[0m  [["user_id", 3]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [2 times] (1.9ms)
+  Rendered users/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 62ms (Views: 56.2ms | ActiveRecord: 0.9ms)
+
+
