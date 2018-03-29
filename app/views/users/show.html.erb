@@ -28,10 +28,12 @@
     <% else %>
     <p>You currently have no upcoming tutor sessions. Add a tutor session below.</p>
     <% end %>
-  </section>
 
+  </section>
+  
   <section class="tutor_session">
   	<h3>Create new tutor session:</h3>
+     <p><button><a href = "../redirect" > View Calendar </a></button></p>
   <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
       <p>
         <%= f.label :subject %>
@@ -73,4 +75,4 @@
 
 </aside>
 
-<a href = "../redirect" > View Calendar </a>
+
