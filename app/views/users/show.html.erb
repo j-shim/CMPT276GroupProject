@@ -20,10 +20,23 @@
   </section>
 
   <section class="tutor_session">
-  <h2>Sessions (<%= @user.tutor_sessions.count %>)</h2>
-  <% if @user.tutor_sessions.any? %>
+  <h2>Sessions (<%= @user.tutor_sessions.count + TutorSession.where(student_id: @user.id).count + TutorSession.where(tutor_id: @user.id).count %>)</h2>
+  <% if @user.tutor_sessions.any? || TutorSession.where(student_id: @user.id).any? || TutorSession.where(tutor_id: @user.id).any? %>
     <ol class="sessions">
     <%= render @user.tutor_sessions %>
+
+    <% if @user.role == "Student" %>
+      <% TutorSession.where(student_id: @user.id).each do |session| %>
+        <%= render session %>
+      <% end %>
+    <% end %>
+
+    <% if @user.role == "Tutor" %>
+      <% TutorSession.where(tutor_id: @user.id).each do |session| %>
+        <%= render session %>
+      <% end %>
+    <% end %>
+
     </ol>
     <% else %>
     <p>You currently have no upcoming tutor sessions. Add a tutor session below.</p>
@@ -39,6 +52,31 @@
         <%= f.label :subject %>
         <%= f.text_field :subject %>
       </p>
+
+      <% if @user.role == "Student" %>
+
+        <p>
+          <%= f.label :"Tutoring by: " %>
+          <select name="tutor_session[tutor_id]">
+            <% @user.students.find(@user.id).tutors.all.each do |t| %>
+              <option value="<%= t.user_id %>"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></option>
+            <% end %>
+          </select>
+        </p> 
+      
+      <% elsif @user.role == "Tutor" %>
+
+      <p>
+        <%= f.label :"Tutoring: " %>
+        <select name="tutor_session[student_id]">
+          <% @user.tutors.find(@user.id).students.all.each do |s| %>
+            <option value="<%= s.user_id %>"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%></option>
+          <% end %>
+        </select>
+      </p> 
+
+      <% end %>
+
       <p>
         <%= f.label :date %>
         <%= f.date_select :date, start_year: Date.current.year, start_month: Date.current.month %>
@@ -72,18 +110,17 @@
     <% if @user.students.find(@user.id).tutors.any? %>
       <ol> 
       <% @user.students.find(@user.id).tutors.all.each do |t| %>
-        <li><p class="name"><strong><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></strong> </p></li>
+        <li><p class="name"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></p></li>
       <% end %>
       </ol>
     <% end %>
 
   <% elsif @user.role == "Tutor" %>
-  <h2>Student(s): </h2>
-    <p><strong>Number of students: </strong> <%= @user.tutors.find(@user.id).students.count %> </p> 
+  <h2>Students (<%= @user.tutors.find(@user.id).students.count %>): </h2>
     <% if @user.tutors.find(@user.id).students.any? %>
       <ol> 
       <% @user.tutors.find(@user.id).students.all.each do |s| %>
-        <li><p class="name"><strong><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%></strong> </p></li>
+        <li><p class="name"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%> </p></li>
       <% end %>
       </ol>
     <% end %>

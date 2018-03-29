@@ -1,8 +1,8 @@
 class TutorSession < ApplicationRecord
   belongs_to :user
-  # belongs_to :student
-  # belongs_to :tutor
-  default_scope -> { order(created_at: :desc) }
+  # belongs_to :student, index: true, dependent: :destroy,
+  # belongs_to :tutor, index: true, dependent: :destroy,
+  default_scope -> { order(date: :desc) }
   validates :user_id, presence: true
   validates :subject, presence: true, length: { maximum: 30 }
   validates :date, presence: true

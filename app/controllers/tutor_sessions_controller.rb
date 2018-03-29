@@ -38,7 +38,7 @@ class TutorSessionsController < ApplicationController
     private
         def sessions_params
           # calculate_time_duration
-          params.require(:tutor_session).permit(:subject,:date,:starttime,:endtime)
+          params.require(:tutor_session).permit(:tutor_id, :student_id, :subject,:date,:starttime,:endtime)
         end
 
         # def calculate_time_duration
