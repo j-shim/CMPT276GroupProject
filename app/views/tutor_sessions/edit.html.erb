@@ -1,0 +1,28 @@
+<% provide(:title, "Edit session") %>
+<%= render 'layouts/header' %>
+<h2 id="page-title">Update your session</h2>
+
+<div class="row">
+
+
+<%= form_with(model: @tutor_session) do |f| %>
+  <p>
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </p>  
+  <p>
+    <%= f.label :date %>
+    <%= f.date_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year'} %>
+  </p> 
+  <p>
+    <%= f.label :"Start time" %>
+    <%= f.time_select :starttime, {ampm: true} %> </br>
+    <%= f.label :"End time" %>
+    <%= f.time_select :endtime, {ampm: true} %>
+  </p>
+  <p><%= f.submit "Save"%></p> 
+
+<% end %>
+</div>
+
+<%= link_to 'Back', user_path %>
