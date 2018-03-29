@@ -2,6 +2,8 @@
 <span class="subject"><%= tutor_session.subject %></span>
 <span class="date"><%= tutor_session.date.strftime("%a, %B %d, %Y") %></span>
 <span class="time"><%= tutor_session.starttime.time.strftime("%I:%M %p") %> - <%= tutor_session.endtime.time.strftime("%I:%M %p") %></span>
+<span class="time"><%= tutor_session.time_duration %> hours</span>
+<!-- <span class="time"><%= (tutor_session.endtime - tutor_session.starttime)/3600%> hours</span> -->
 <!-- <span class="timestamp">
   Created <%= time_ago_in_words(tutor_session.created_at) %> ago.
 </span> -->

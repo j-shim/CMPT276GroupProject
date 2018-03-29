@@ -9,7 +9,7 @@
       <p><strong>Email address: </strong><%= @user.username %></p>
       <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
       <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
-
+  
       <% if @user.role == "Tutor" %>
         </br>
         <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
@@ -39,7 +39,7 @@
       </p>  
       <p>
         <%= f.label :date %>
-        <%= f.date_select :date, prompt: {day: 'Select day', month: 'Select month', year: 'Select year'} %>
+        <%= f.date_select :date, start_year: Date.current.year, start_month: Date.current.month %>
       </p> 
       <p>
         <%= f.label :"Start time" %>
@@ -64,7 +64,7 @@
 <section id="tutor_student">
   <% if @user.role == "Student" %>
   <h2> Tutor(s): </h2>
-  <p>Find a tutor now</p>
+  <p></p>
 
   <% elsif @user.role == "Tutor" %>
   <h2>Student(s): </h2>

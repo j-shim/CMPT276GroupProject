@@ -1,5 +1,5 @@
-<li id="tutor_session-<%= tutor_session.id %>">
-<span class="subject"><%= tutor_session.subject %></span>
+<li id="tutor_-<%= tutor.user_id %>">
+<span class="name"><%= tutor_session.subject %></span>
 <span class="date"><%= tutor_session.date %></span>
 <span class="timestamp">
   Created <%= time_ago_in_words(tutor_session.created_at) %> ago.

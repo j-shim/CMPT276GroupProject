@@ -16,7 +16,9 @@ class UsersController < ApplicationController
       if @user.role == "Tutor"
         @tutor = @user.tutors.create(attributes = { school: "Please update school name", rate: 10.0})
       elsif @user.role == "Student"
-        @student = @user.students.create(attributes = {age: 5})
+        print "creating student account"
+        @student = @user.students.create(need_parent: false, parent_firstname: "none", parent_lastname: "none")
+        @student.save!
       end
       log_in @user
       redirect_to @user
@@ -27,7 +29,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # @tutor = @user.tutors.find(@user.id)
   end
 
   def update
@@ -46,6 +47,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level,tutors_attributes: [:id, :school, :rate])
+    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level,tutors_attributes: [:id, :school, :rate],students_attributes: [:id, :need_parent, :parent_firstname, :parent_lastname])
   end
 end

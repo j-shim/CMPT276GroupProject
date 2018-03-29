@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327230841) do
+ActiveRecord::Schema.define(version: 20180328013155) do
 
   create_table "students", primary_key: "user_id", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180327230841) do
     t.date "date"
     t.time "starttime"
     t.time "endtime"
+    t.float "time_duration"
     t.index ["user_id", "created_at"], name: "index_tutor_sessions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tutor_sessions_on_user_id"
   end

@@ -8,4 +8,9 @@ class TutorSession < ApplicationRecord
   validates :date, presence: true
   validates :starttime, presence: true
   validates :endtime, presence: true
+  time_duration = :calculate_time_duration  # :calculate_time_duration
+
+  def calculate_time_duration
+  	time_duration = (endtime - starttime)/3600
+  end
 end
