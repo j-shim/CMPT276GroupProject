@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @totalHours = 0
     @user = User.find(params[:id])
     @tutor_session = current_user.tutor_sessions.build if logged_in?
 

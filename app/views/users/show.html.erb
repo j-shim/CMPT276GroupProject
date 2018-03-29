@@ -2,21 +2,21 @@
 <%= render 'layouts/header' %>
 <aside class="col-md-4">
   <section class="user_info">
-    	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
-    	<h2>Profile: </h2>
-      <p><strong>Account type: </strong><%= @user.role %></p></br>
-      <p><strong>Full name: </strong><span class="name"><%= @user.firstname + " " + @user.lastname %></span></p>
-      <p><strong>Email address: </strong><%= @user.username %></p>
-      <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
-      <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
+  	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
+  	<h2>Profile: </h2>
+    <p><strong>Account type: </strong><%= @user.role %></p></br>
+    <p><strong>Full name: </strong><span class="name"><%= @user.firstname + " " + @user.lastname %></span></p>
+    <p><strong>Email address: </strong><%= @user.username %></p>
+    <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
+    <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
 
-      <% if @user.role == "Tutor" %>
-        </br>
-        <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
-        <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
-      <% end %>
+    <% if @user.role == "Tutor" %>
+      </br>
+      <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
+      <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
+    <% end %>
 
-      <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
+    <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
   </section>
 
   <section class="tutor_session">
@@ -54,23 +54,41 @@
   </section>
 
 <section id="progress">
-  <% if @user.role == "Student" %>
-  <h2> Total amount due: </h2>
-  <p>Find a tutor now</p>
-
-  <% elsif @user.role == "Tutor" %>
-  <h2>Total amount earned: </h2>
+  <h2>Progress</h2>
+  <% @user.tutor_sessions.all.each do |s| %>
+    <% @totalHours += (s.endtime - s.starttime)/3600 %>
+  <% end %>
+  <p><strong>Total hours: </strong> <%= @totalHours %></p>
+  <% if @user.role == "Tutor" %>
+    <p><strong>Total amount paid: </strong> <%= number_to_currency(@totalHours * @user.tutors.find(@user.id).rate)%></p>
   <% end %>
 </section>
 
 <section id="tutor_student">
   <% if @user.role == "Student" %>
   <h2> Tutor(s): </h2>
-  <p></p>
+  
+    <p><strong>Number of tutors: </strong> <%= @user.students.find(@user.id).tutors.count %> </p> 
+    <% if @user.students.find(@user.id).tutors.any? %>
+      <ol> 
+      <% @user.students.find(@user.id).tutors.all.each do |t| %>
+        <li><p class="name"><strong><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></strong> </p></li>
+      <% end %>
+      </ol>
+    <% end %>
 
   <% elsif @user.role == "Tutor" %>
   <h2>Student(s): </h2>
-  <% end %>
+    <p><strong>Number of students: </strong> <%= @user.tutors.find(@user.id).students.count %> </p> 
+    <% if @user.tutors.find(@user.id).students.any? %>
+      <ol> 
+      <% @user.tutors.find(@user.id).students.all.each do |s| %>
+        <li><p class="name"><strong><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%></strong> </p></li>
+      <% end %>
+      </ol>
+    <% end %>
+    
+  <% end %> 
 </section>
 
 </aside>
