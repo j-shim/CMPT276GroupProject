@@ -20,6 +20,5 @@ class User < ApplicationRecord
   	has_secure_password
   	validates :password, presence: true, length: {minimum:6} #minimum length of the password is 6
 
-    geocoded_by :location
 
 end

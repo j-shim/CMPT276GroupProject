@@ -9,7 +9,7 @@
       <p><strong>Email address: </strong><%= @user.username %></p>
       <p><strong>City: </strong><span class="name"><%= @user.location %></span> </p>
       <p><strong>Education Level: </strong><span class="name"><%= @user.education_level %></span> </p>
-  
+
       <% if @user.role == "Tutor" %>
         </br>
         <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
@@ -36,18 +36,18 @@
       <p>
         <%= f.label :subject %>
         <%= f.text_field :subject %>
-      </p>  
+      </p>
       <p>
         <%= f.label :date %>
         <%= f.date_select :date, start_year: Date.current.year, start_month: Date.current.month %>
-      </p> 
+      </p>
       <p>
         <%= f.label :"Start time" %>
         <%= f.time_select :starttime, {ampm: true} %> </br>
         <%= f.label :"End time" %>
         <%= f.time_select :endtime, {ampm: true} %>
       </p>
-      <p><%= f.submit "Create"%></p> 
+      <p><%= f.submit "Create"%></p>
   <% end %>
   </section>
 
@@ -73,30 +73,4 @@
 
 </aside>
 
-<style>
-     #map {
-       width: 40%;
-       height: 300px;
-       background-color: grey;
-       float: right;
-     }
-</style>
-
-   <div id="map"></div>
-   <script>
-     function initMap() {
-       var uluru = {lat: 49.159567, lng: -122.842240};
-       var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 9,
-         center: uluru
-       });
-       var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-     }
-   </script>
-
-   <script async defer
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGOta3WsUQnTmwEbh-lGrzbeQNTJlu2YY&callback=initMap">
-   </script>
+<a href = "../redirect" > View Calendar </a>

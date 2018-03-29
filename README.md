@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Tutorial used for google_calendar_api : https://readysteadycode.com/howto-integrate-google-calendar-with-rails

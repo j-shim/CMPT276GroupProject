@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   get '/tutors', to:'welcome#tutors'
   get  '/signup',  to: 'users#new'
   post  '/signup',  to: 'users#create'
+  get '/redirect', to: 'cali#redirect', as: 'redirect'
+  get '/callback', to: 'cali#callback', as: 'callback'
+  get '/calendars', to: 'cali#calendars', as: 'calendars'
+  get '/events/:calendar_id', to: 'cali#events', as: 'events', calendar_id: /[^\/]+/
+  post '/events/:calendar_id', to: 'cali#new_event', as: 'new_event', calendar_id: /[^\/]+/
+
+
+
   resources :users
   resources :tutor_sessions,          only: [:create, :destroy,:edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

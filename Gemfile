@@ -61,4 +61,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bcrypt'
 
-gem 'geocoder'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
