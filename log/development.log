@@ -5585,3 +5585,630 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 90ms (Views: 80.8ms | ActiveRecord: 3.5ms)
 
 
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:32:40 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.0ms)
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.3ms)
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mTutorSession Load (0.5ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (120.1ms)
+Completed 200 OK in 432ms (Views: 329.7ms | ActiveRecord: 7.2ms)
+
+
+Started DELETE "/tutor_sessions/2" for 127.0.0.1 at 2018-03-29 16:33:06 -0700
+Processing by TutorSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hbX8SzKjyqUtGTYhCrmQOqI/cN9hOxsuPTzrOK/yG8T+747+86hOicUOGD4wei4ORWaGLD2KJjmp1JX7hczlgg==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "tutor_sessions"."id" FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT  "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? AND "tutor_sessions"."id" = 4 ORDER BY "tutor_sessions"."date" DESC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "tutor_sessions" WHERE "tutor_sessions"."id" = ?[0m  [["id", 4]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 15ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:33:06 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.7ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (7.4ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTutorSession Load (1.4ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  Rendered tutor_sessions/_tutor_session.html.erb (3.2ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.1ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (170.0ms)
+Completed 200 OK in 266ms (Views: 230.7ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:37:31 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  Rendered collection of templates [0 times] (0.0ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (6.6ms)
+  Rendered users/show.html.erb within layouts/application (23.1ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/views/tutor_sessions/_tutor_session.html.erb:3:in `_app_views_tutor_sessions__tutor_session_html_erb__2291755938680052056_70287462570280'
+app/views/users/show.html.erb:36:in `block in _app_views_users_show_html_erb__4223536096347381540_70287456816620'
+app/views/users/show.html.erb:35:in `_app_views_users_show_html_erb__4223536096347381540_70287456816620'
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:38:41 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.2ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (3.5ms)
+  Rendered users/show.html.erb within layouts/application (22.6ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/views/tutor_sessions/_tutor_session.html.erb:3:in `_app_views_tutor_sessions__tutor_session_html_erb__2291755938680052056_70287423502700'
+app/views/users/show.html.erb:36:in `block in _app_views_users_show_html_erb__4223536096347381540_70287457935740'
+app/views/users/show.html.erb:35:in `_app_views_users_show_html_erb__4223536096347381540_70287457935740'
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:41:07 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.1ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/views/tutor_sessions/_tutor_session.html.erb:3:in `_app_views_tutor_sessions__tutor_session_html_erb__2291755938680052056_70287423352420'
+app/views/users/show.html.erb:36:in `block in _app_views_users_show_html_erb__4223536096347381540_70287472996460'
+app/views/users/show.html.erb:35:in `_app_views_users_show_html_erb__4223536096347381540_70287472996460'
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:41:15 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.5ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.1ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 74ms (Views: 67.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:43:07 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.5ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.7ms)
+  Rendered users/show.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 1.8ms)
+
+
+  
+SyntaxError (/Users/ronniehung/Tutor_4_me/app/views/tutor_sessions/_tutor_session.html.erb:3: syntax error, unexpected tCONSTANT, expecting ')'
+_session.subject " with " User.find(tutor_session.student_id
+                              ^):
+  
+app/views/tutor_sessions/_tutor_session.html.erb:3: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:26:in `_app_views_users_show_html_erb__4223536096347381540_70287459008760'
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:43:20 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.9ms)
+  [1m[36mTutorSession Load (0.4ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (4.8ms)
+  Rendered users/show.html.erb within layouts/application (35.2ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 2.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/views/tutor_sessions/_tutor_session.html.erb:3:in `_app_views_tutor_sessions__tutor_session_html_erb__2291755938680052056_70287427595020'
+app/views/users/show.html.erb:36:in `block in _app_views_users_show_html_erb__4223536096347381540_70287471501040'
+app/views/users/show.html.erb:35:in `_app_views_users_show_html_erb__4223536096347381540_70287471501040'
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:46:19 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.4ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.8ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 75ms (Views: 68.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:47:37 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.7ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.6ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.5ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 56ms (Views: 51.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:48:40 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (2.2ms)
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.5ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (3.7ms)
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (2.5ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (72.5ms)
+Completed 200 OK in 115ms (Views: 104.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-29 16:49:41 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (3.3ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.9ms)
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 2]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "students_tutors" ON "students"."user_id" = "students_tutors"."student_id" WHERE "students_tutors"."tutor_id" = ?[0m  [["tutor_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 69ms (Views: 62.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-03-29 16:49:45 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-29 16:49:46 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 136ms (Views: 128.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-29 16:49:53 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m/HEQlqdCNJeZIlrJdhMFeyJ7eWYtCvzfcQ4UGnCaIJNE28uTG9cFXAaBTznD5v4wq3xxT17FJYEpwjPePbLLw==", "user"=>{"username"=>"andrews@email.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "andrews@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 75ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2018-03-29 16:49:53 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 6]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (1.8ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.6ms)
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 6]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 69ms (Views: 62.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2018-03-29 16:50:49 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 6]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (2.8ms)
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (2.5ms)
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 6]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["tutor_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (86.7ms)
+Completed 200 OK in 165ms (Views: 112.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2018-03-29 16:51:11 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 6]]
+  [1m[36mTutorSession Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (3.7ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (3.2ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (2.6ms)
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 6]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["tutor_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (65.8ms)
+Completed 200 OK in 101ms (Views: 81.9ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2018-03-29 16:51:17 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 6]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (6.2ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (1.8ms)
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 6]]
+  [1m[36mTutorSession Load (0.5ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (86.4ms)
+Completed 200 OK in 163ms (Views: 110.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2018-03-29 16:51:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 6]]
+  [1m[36mTutorSession Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (6.1ms)
+  [1m[36mTutorSession Load (0.4ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tutor_sessions/_tutor_session.html.erb (7.8ms)
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["user_id", 6]]
+  [1m[36mTutorSession Load (0.3ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" DESC[0m  [["tutor_id", 6]]
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 112ms (Views: 102.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2018-03-29 16:51:56 -0700
+Processing by WelcomeController#about as HTML
+  Rendering welcome/about.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered welcome/about.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 153ms (Views: 149.3ms | ActiveRecord: 0.2ms)
+
+

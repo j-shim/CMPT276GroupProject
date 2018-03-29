@@ -56,7 +56,7 @@
       <% if @user.role == "Student" %>
 
         <p>
-          <%= f.label :"Tutoring by: " %>
+          <%= f.label :"Tutored by: " %>
           <select name="tutor_session[tutor_id]">
             <% @user.students.find(@user.id).tutors.all.each do |t| %>
               <option value="<%= t.user_id %>"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></option>
@@ -94,6 +94,9 @@
 <section id="progress">
   <h2>Progress</h2>
   <% @user.tutor_sessions.all.each do |s| %>
+    <% @totalHours += (s.endtime - s.starttime)/3600 %>
+  <% end %>
+  <% TutorSession.where(tutor_id: @user.id).each do |s| %>
     <% @totalHours += (s.endtime - s.starttime)/3600 %>
   <% end %>
   <p><strong>Total hours: </strong> <%= @totalHours %></p>

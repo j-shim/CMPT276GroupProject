@@ -1,5 +1,19 @@
 <li id="tutor_session-<%= tutor_session.id %>" class="tutor_session_list">
-<span class="subject"><%= tutor_session.subject %></span>
+<% if @user.role == "Tutor" %>
+	<% if tutor_session.student_id == nil %>
+	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.user_id).firstname %></span></span>
+	<% else %>
+	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.student_id).firstname %></span> </span>
+	<% end %>
+<% end %>
+
+<% if @user.role == "Student" %>
+	<% if tutor_session.tutor_id == nil %>
+	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.user_id).firstname %></span></span>
+	<% else %>
+	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.tutor_id).firstname %></span> </span>
+	<% end %>
+<% end %>
 <span class="date"><%= tutor_session.date.strftime("%a, %B %d, %Y") %></span>
 <span class="time"><%= tutor_session.starttime.time.strftime("%I:%M %p") %> - <%= tutor_session.endtime.time.strftime("%I:%M %p") %></span>
 <span><%= (tutor_session.endtime - tutor_session.starttime)/3600%> hour(s)</span>
