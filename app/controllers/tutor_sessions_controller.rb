@@ -12,14 +12,28 @@ class TutorSessionsController < ApplicationController
         end
     end
   
-    def destroy
-    end
-
     def edit
+        @tutor_session = current_user.tutor_sessions.find_by(id:current_user.tutor_sessions.ids)
     end
   
     def update
+        @tutor_session = current_user.tutor_sessions.find_by(id:current_user.tutor_sessions.ids)
+ 
+        if @tutor_session.update(sessions_params)
+          redirect_to current_user
+        else
+          render 'edit'
+        end
     end
+
+    def destroy
+        @tutor_session = current_user.tutor_sessions.find_by(id:current_user.tutor_sessions.ids)
+        @tutor_session.destroy
+       
+        flash[:success] = "Session deleted"
+        redirect_to request.referrer
+    end
+
 
     private
         def sessions_params
