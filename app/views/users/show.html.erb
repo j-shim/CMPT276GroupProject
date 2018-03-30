@@ -99,6 +99,9 @@
   <% TutorSession.where(tutor_id: @user.id).each do |s| %>
     <% @totalHours += (s.endtime - s.starttime)/3600 %>
   <% end %>
+  <% TutorSession.where(student_id: @user.id).each do |s| %>
+    <% @totalHours += (s.endtime - s.starttime)/3600 %>
+  <% end %>
   <p><strong>Total hours: </strong> <%= @totalHours %></p>
   <% if @user.role == "Tutor" %>
     <p><strong>Total amount paid: </strong> <%= number_to_currency(@totalHours * @user.tutors.find(@user.id).rate)%></p>
