@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329180146) do
+ActiveRecord::Schema.define(version: 20180330073737) do
 
   create_table "students", primary_key: "user_id", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20180329180146) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "rate", precision: 4, scale: 2
+    t.string "bio"
+    t.string "subjects"
     t.index ["user_id"], name: "index_tutors_on_user_id", unique: true
   end
 

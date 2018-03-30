@@ -14,6 +14,8 @@
       </br>
       <p><strong>School: </strong><span class="name"><%= @user.tutors.find(@user.id).school %></span> </p>
       <p><strong>Rate (per hour): </strong><span class="name"><%= number_to_currency(@user.tutors.find(@user.id).rate) %></span> </p>
+      <p><strong>Bio: </strong><%= @user.tutors.find(@user.id).bio %></p>
+      <p><strong>Subjects: </strong><span class="name"><%= @user.tutors.find(@user.id).subjects %></span> </p>
     <% end %>
 
     <p><button><%= link_to "Update profile",  edit_user_path %></button></p>

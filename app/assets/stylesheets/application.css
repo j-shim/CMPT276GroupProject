@@ -48,6 +48,12 @@ input[type="button"], input[type="submit"], button {
     border-radius: 3px;
 }
 
+textarea {
+  width: 15%;
+  padding: 10px;
+  min-height: 50px;
+}
+
 button a {
 	text-decoration: none;
 	color: #fff;

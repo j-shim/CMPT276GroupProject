@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       if @user.role == "Tutor"
-        @tutor = @user.tutors.create(attributes = { school: "Please update school name", rate: 10.0})
+        @tutor = @user.tutors.create(attributes = { school: "Please update school name", rate: 10.0, bio: "Please tell us a little more about yourself", subjects: "Please list all the subjects and levels you can tutor"})
       elsif @user.role == "Student"
         print "creating student account"
         @student = @user.students.create(need_parent: false, parent_firstname: "none", parent_lastname: "none")
@@ -48,6 +48,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level,tutors_attributes: [:id, :school, :rate],students_attributes: [:id, :need_parent, :parent_firstname, :parent_lastname])
+    params.require(:user).permit(:firstname,:lastname,:username,:password,:gender,:location,:role,:education_level,tutors_attributes: [:id, :school, :rate, :bio, :subjects],students_attributes: [:id, :need_parent, :parent_firstname, :parent_lastname])
   end
 end
