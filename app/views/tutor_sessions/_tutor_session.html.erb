@@ -17,9 +17,12 @@
 <span class="date"><%= tutor_session.date.strftime("%a, %B %d, %Y") %></span>
 <span class="time"><%= tutor_session.starttime.time.strftime("%I:%M %p") %> - <%= tutor_session.endtime.time.strftime("%I:%M %p") %></span>
 <span><%= (tutor_session.endtime - tutor_session.starttime)/3600%> hour(s)</span>
+<span>Created by <span class="name"><%= User.find(tutor_session.user_id).firstname %></span> </span>
 
+<% if tutor_session.user_id == @user.id %>
 <span class="edit"><%= link_to "Edit",  edit_tutor_session_path %></span>
 <span class="delete"><%= link_to "Delete", tutor_session_path,method: :delete,data: { confirm: 'Are you sure?' } %></span>
+<% end %>
 <!-- <span class="timestamp">
 
   Created <%= time_ago_in_words(tutor_session.created_at) %> ago.
