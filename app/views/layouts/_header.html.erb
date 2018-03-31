@@ -1,5 +1,6 @@
-<h1>Tutor 4 Me</h1>
+<header class="navbar"> 
 	<nav>
+		<h1 id="logo">Tutor 4 Me</h1>
 		<ul class="nav">	 
 		  <% if logged_in? %>
 		  	<li class="nav"><%= link_to "Log Out",  logout_path %></li>
@@ -10,9 +11,9 @@
 		    <li class="nav"><%= link_to "Log In",   root_path %></li>
 		  	<li class="nav"><%= link_to "Sign up", signup_path %></li>
 		  <% end %>
-		  <li class="nav"><%= link_to "Contact", contact_path %></li>
+		  <!-- <li class="nav"><%= link_to "Contact", contact_path %></li>
 		  <li class="nav"><%= link_to "About", about_path %></li>
-		  <li class="nav"><%= link_to "Help",   help_path %></li>
+		  <li class="nav"><%= link_to "Help",   help_path %></li> -->
 		</ul>
 	</nav>
 </header>

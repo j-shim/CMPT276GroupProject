@@ -2,7 +2,7 @@
 <%= render 'layouts/header' %>
 <h2 id="page-title">Update your profile</h2>
 
-<div class="row">
+<div class="container">
 
     <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
@@ -21,61 +21,62 @@
     <% if @user.role == "Tutor" %>
     <h3>Tutor profile:</h3>
     <%= f.fields_for :tutors do |t| %>
-      <p>
-        <%= t.label :school %>
-         <%= t.text_field :school %>    
-      </p>
-     
-      <p>
+        <div class="form-group">
+          <%= t.label :school %>
+          <%= t.text_field :school, class: 'form-control' %>    
+        </div>
+      
+      <div class="form-group">
         <%= t.label :rate %>
-        <%= t.text_field :rate %>
-      </p>
+        <%= t.text_field :rate, class: 'form-control' %>
+      </div>
 
-       <p>
-        <%= t.label :subjects %>
-        <%= t.text_field :subjects%>
-      </p>
+      <div class="form-group">
+        <%= t.label :subjects%>
+        <%= t.text_field :subjects, class: 'form-control'%>
+      </div>
 
-      <p>
+      <div class="form-group">
         <%= t.label :bio %>
-        <%= t.text_area :bio%>
-      </p>
+        <%= t.text_area :bio, class: 'form-control'%>
+      </div>
       <% end %>
-    <% end %>
+    <% end %> <!--end of tutor section -->
 
     <h3>Account profile:</h3>
-    <p><%= f.label :"First name " %>
-        <%= f.text_field :firstname%>
-    </p>
+    <div class="form-group">
+        <%= f.label :"First name " %>
+        <%= f.text_field :firstname, class: 'form-control' %>
+    </div>
       
-    <p>
+    <div class="form-group">
       <%= f.label :"Last name" %>
-      <%= f.text_field :lastname%>
-    </p>
+      <%= f.text_field :lastname, class: 'form-control'%>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= f.label :username %>
-      <%= f.email_field :username%>
-    </p>
+      <%= f.email_field :username, class: 'form-control'%>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= f.label :location %>
-      <%= f.text_field :location%>
-    </p>
+      <%= f.text_field :location, class: 'form-control'%>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= f.label :education_level %>
-      <%= f.text_field :education_level %>
-    </p>
+      <%= f.text_field :education_level, class: 'form-control' %>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= f.label :password %>
-      <%= f.password_field :password%>
-    </p>
+      <%= f.password_field :password, class: 'form-control'%>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= f.submit "Save changes"%>
-    </p>
+    </div>
 
     <% end %>
     </div>

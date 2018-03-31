@@ -7,12 +7,6 @@ $primary-color: #333;
 $green: #09AA4B;
 $borderRadius: 3px;
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-  margin: 0 auto;
-}
-
 label {
   font-weight:bold;
 }
@@ -28,22 +22,6 @@ input[type="button"], input[type="submit"],  {
 input[type="text"], input[type="password"], input[type="email"] {
   padding: 5px;
   width: 15%;
-}
-
-form {
-  text-align: center;
-}
-
-form p {
-  padding: 11px;
-}
-
-ul.nav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: $green;
 }
 
 li.nav {

@@ -1,15 +1,17 @@
 <% provide(:title, "Tutors") %>
 <%= render 'layouts/header' %>
 <h2 id="page-title">Our Tutors</h2>
-<% User.where(role: "Tutor").each do |user| %>
- <h3 class="name"><%= user.firstname + " " + user.lastname%></h3>
-  <p><strong>Location: </strong><span class="name"><%= user.location %></span> </p>
- <p><strong>Education level: </strong><%= user.education_level %></p>
- 	<% Tutor.where(user_id: user.id).each do |tutor| %>
- 	<p><strong>School: </strong><span class="name"><%= tutor.school %></span>  </p>
- 	<p><strong>Rate: </strong><%= number_to_currency(tutor.rate) %>/hr</p>
- 	<p><strong>Bio: </strong><%= tutor.bio %></p>
-      <p><strong>Subjects: </strong><span class="name"><%= tutor.subjects %></span> </p>
- 	<% end %>
-</br>
-<% end %>
+<div class="container">
+	<% User.where(role: "Tutor").each do |user| %>
+	<h3 class="name"><%= user.firstname + " " + user.lastname%></h3>
+		<p><strong>Location: </strong><span class="name"><%= user.location %></span> </p>
+		<p><strong>Education level: </strong><%= user.education_level %></p>
+	 	<% Tutor.where(user_id: user.id).each do |tutor| %>
+		 	<p><strong>School: </strong><span class="name"><%= tutor.school %></span>  </p>
+		 	<p><strong>Rate: </strong><%= number_to_currency(tutor.rate) %>/hr</p>
+		 	<p><strong>Bio: </strong><%= tutor.bio %></p>
+		      <p><strong>Subjects: </strong><span class="name"><%= tutor.subjects %></span> </p>
+	 	<% end %>
+		</br>
+	<% end %>
+</div>

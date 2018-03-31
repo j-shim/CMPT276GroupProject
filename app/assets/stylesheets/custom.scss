@@ -1,0 +1,109 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$primary-color: #333;
+$green: #09AA4B;
+$borderRadius: 3px;
+
+body {
+  color: $primary-color;
+  margin: 0 auto;
+  font-size: 14px !important;
+}
+
+div {
+	margin: 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+nav {
+	background-color: $green;
+	height: 90px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+#logo {
+	float: left;
+	margin: 2%;
+	margin-bottom: 10px; 
+	color: #fff;
+}
+
+ul.nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+  	top: 25%;
+}
+
+.nav > li > a {
+	font-size: 1.1em;
+}
+
+ #page-title {
+ 	background: #f2f2f2;
+ 	color: #09AA4B;
+ 	padding: 15px;
+ }
+
+label {
+	display: flex;
+}
+
+input[type="button"], input[type="submit"], button {
+	border-style: none;
+    background-color: #09AA4B;;
+    padding: 10px;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 3px;
+}
+
+textarea {
+  width: 15%;
+  padding: 10px;
+  min-height: 50px;
+}
+
+button a {
+	text-decoration: none;
+	color: #fff;
+}
+
+button {
+	margin-top: 10px;
+}
+
+#error_explanation {
+	color: red;
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+}
+    
+
+/*.alert-danger {
+	color: red;
+}
+
+.alert-success {
+	color: green;
+}*/
+
+.name {
+	text-transform: capitalize;
+	display: initial;
+}
+
+.login-name {
+	text-align: right;
+}
