@@ -1,25 +1,23 @@
 <% provide(:title, "Log in") %>
 <%= render 'layouts/header' %>
-
-<div>
 <h2 id="page-title">User Login</h2>
+<div class="container">
 <% if logged_in? %>
   <p>You are already logged in. If you'd like to log in to another account, please log out first.</p>
 <% else %>
   <%= form_with scope: :user, url:login_path, local: true do |form| %>
-  <p>
+  <div class="form-group">
     <%= form.label :"email address" %><br>
-    <%= form.text_field :username %>
-  </p>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
  
-  <p>
+  <div class="form-group">
     <%= form.label :password %><br>
-    <%= form.password_field :password %>
-  </p>
- 
-  <p>
-    <%= form.submit "Log in"%>
-  </p>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <%= form.submit "Log in", class: 'btn btn-primary'%>
+
   <% end %>
  </div>
 <% end %>

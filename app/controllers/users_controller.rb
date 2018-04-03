@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       if @user.role == "Tutor"
         @tutor = @user.tutors.create(attributes = { school: "Please update school name", rate: 10.0, bio: "Please tell us a little more about yourself", subjects: "Please list all the subjects and levels you can tutor"})
       elsif @user.role == "Student"
-        print "creating student account"
+        # print "creating student account"
         @student = @user.students.create(need_parent: false, parent_firstname: "none", parent_lastname: "none")
         @student.save!
       end
@@ -26,6 +26,14 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def create_student_tutor
+    @tutor = Tutor.find(params[:tutor_id])
+    @user = Student.find(params[:student_id])
+    @user.tutors << @tutor
+
+    redirect_to User.find(params[:student_id])
   end
 
   def edit
@@ -40,10 +48,6 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def google_map(center)
-  "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
   end
 
   private

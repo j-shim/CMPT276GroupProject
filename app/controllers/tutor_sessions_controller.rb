@@ -13,7 +13,7 @@ class TutorSessionsController < ApplicationController
     end
   
     def edit
-        @tutor_session = current_user.tutor_sessions.find_by(id:current_user.tutor_sessions.ids)
+        @tutor_session = current_user.tutor_sessions.find_by(params[:id])
     end
   
     def update
@@ -27,7 +27,7 @@ class TutorSessionsController < ApplicationController
     end
 
     def destroy
-        @tutor_session = current_user.tutor_sessions.find_by(id:current_user.tutor_sessions.ids)
+        @tutor_session = current_user.tutor_sessions.find_by(params[:id])
         @tutor_session.destroy
        
         flash[:success] = "Session deleted"
@@ -37,11 +37,11 @@ class TutorSessionsController < ApplicationController
 
     private
         def sessions_params
-          # calculate_time_duration
-          params.require(:tutor_session).permit(:tutor_id, :student_id, :subject,:date,:starttime,:endtime)
+            if current_user.role == "Tutor"
+                tutor_id = current_user.id
+            elsif current_user.role == "Student"
+                student_id = current_user.id 
+            end
+            params.require(:tutor_session).permit(:tutor_id, :student_id,:subject,:date,:starttime,:endtime,:time_duration)
         end
-
-        # def calculate_time_duration
-        #     time_duration = (:endtime - :starttime)/3600
-        # end
 end

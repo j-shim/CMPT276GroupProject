@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/tutors', to:'welcome#tutors'
   get  '/signup',  to: 'users#new'
   post  '/signup',  to: 'users#create'
+  post '/create_student_tutor', to:'users#create_student_tutor'
   get '/redirect', to: 'cali#redirect', as: 'redirect'
   get '/callback', to: 'cali#callback', as: 'callback'
   get '/calendars', to: 'cali#calendars', as: 'calendars'

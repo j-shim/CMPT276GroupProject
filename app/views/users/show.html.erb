@@ -1,6 +1,6 @@
 <% provide(:title, @user.username) %>
 <%= render 'layouts/header' %>
-<aside class="col-md-4">
+<div class="container">
   <section class="user_info">
   	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
   	<h2>Profile</h2>
@@ -18,9 +18,11 @@
       <p><strong>Subjects: </strong><span class="name"><%= @user.tutors.find(@user.id).subjects %></span> </p>
     <% end %>
 
-    <p><button><%= link_to "Update profile",  edit_user_path %></button></p>
+    <p><%= link_to "Update profile",  edit_user_path, class: 'btn btn-primary' %></p>
   </section>
+</div>
 
+<div class="container">
   <section class="tutor_session">
   <h2>Sessions (<%= @user.tutor_sessions.count + TutorSession.where(student_id: @user.id).count + TutorSession.where(tutor_id: @user.id).count %>)</h2>
   <% if @user.tutor_sessions.any? || TutorSession.where(student_id: @user.id).any? || TutorSession.where(tutor_id: @user.id).any? %>
@@ -43,97 +45,106 @@
     <% else %>
     <p>You currently have no upcoming tutor sessions. Add a tutor session below.</p>
     <% end %>
-
+   <p><a href = "../redirect" ><button class="btn btn-primary"> View Calendar </button></a></p>
   </section>
   
   <section class="tutor_session">
-  	<h3>Create new tutor session:</h3>
-     <p><button><a href = "../redirect" > View Calendar </a></button></p>
-  <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
-      <p>
-        <%= f.label :subject %>
-        <%= f.text_field :subject %>
-      </p>
+  	<h3>Create new tutor session</h3>
+   
+    
+    <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :subject %>
+      <%= f.text_field :subject, class: 'form-control' %>
+    </div>
 
-      <% if @user.role == "Student" %>
+    <% if @user.role == "Student" %>
 
-        <p>
-          <%= f.label :"Tutored by: " %>
-          <select name="tutor_session[tutor_id]">
-            <% @user.students.find(@user.id).tutors.all.each do |t| %>
-              <option value="<%= t.user_id %>"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></option>
-            <% end %>
-          </select>
-        </p> 
+      <div class="form-group">
+        <%= f.label :"Tutored by: " %>
+        <select name="tutor_session[tutor_id]" class="form-control">
+          <% @user.students.find(@user.id).tutors.all.each do |t| %>
+            <option value="<%= t.user_id %>"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></option>
+          <% end %>
+        </select>
+      </div> 
       
       <% elsif @user.role == "Tutor" %>
 
-      <p>
-        <%= f.label :"Tutoring: " %>
-        <select name="tutor_session[student_id]">
-          <% @user.tutors.find(@user.id).students.all.each do |s| %>
-            <option value="<%= s.user_id %>"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%></option>
-          <% end %>
-        </select>
-      </p> 
+        <div class="form-group">
+          <%= f.label :"Tutoring: " %>
+          <select name="tutor_session[student_id]" class="form-control">
+            <% @user.tutors.find(@user.id).students.all.each do |s| %>
+              <option value="<%= s.user_id %>" class="name"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%></option>
+            <% end %>
+          </select>
+        </div> 
 
       <% end %>
 
-      <p>
+      <div class="form-group">
         <%= f.label :date %>
-        <%= f.date_select :date, start_year: Date.current.year, start_month: Date.current.month %>
-      </p>
-      <p>
+        <%= f.date_select :date, start_year: Date.current.year, start_month: Date.current.month, class: 'form-control' %>
+      </div>
+
+      <div class="form-inline">
         <%= f.label :"Start time" %>
-        <%= f.time_select :starttime, {ampm: true} %> </br>
+        <%= f.time_select :starttime, {ampm: true}, class: 'form-control' %> </br>
         <%= f.label :"End time" %>
-        <%= f.time_select :endtime, {ampm: true} %>
-      </p>
-      <p><%= f.submit "Create"%></p>
+        <%= f.time_select :endtime, {ampm: true}, class: 'form-control' %>
+      </div>
+      
+      <%= f.submit "Create", class: 'btn btn-primary' %>  
   <% end %>
   </section>
+</div>
 
-<section id="progress">
-  <h2>Progress</h2>
-  <% @user.tutor_sessions.all.each do |s| %>
-    <% @totalHours += (s.endtime - s.starttime)/3600 %>
-  <% end %>
-  <% TutorSession.where(tutor_id: @user.id).each do |s| %>
-    <% @totalHours += (s.endtime - s.starttime)/3600 %>
-  <% end %>
-  <% TutorSession.where(student_id: @user.id).each do |s| %>
-    <% @totalHours += (s.endtime - s.starttime)/3600 %>
-  <% end %>
-  <p><strong>Total hours: </strong> <%= @totalHours %></p>
-  <% if @user.role == "Tutor" %>
-    <p><strong>Total amount paid: </strong> <%= number_to_currency(@totalHours * @user.tutors.find(@user.id).rate)%></p>
-  <% end %>
-</section>
-
-<section id="tutor_student">
-  <% if @user.role == "Student" %>
-  <h2> Tutors (<%= @user.students.find(@user.id).tutors.count %>): </h2>
-    <% if @user.students.find(@user.id).tutors.any? %>
-      <ol> 
-      <% @user.students.find(@user.id).tutors.all.each do |t| %>
-        <li><p class="name"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></p></li>
-      <% end %>
-      </ol>
+<div class="container">
+  <section id="progress">
+    <h2>Progress</h2>
+    <% @user.tutor_sessions.all.each do |s| %>
+      <% @totalHours += (s.endtime - s.starttime)/3600 %>
     <% end %>
-
-  <% elsif @user.role == "Tutor" %>
-  <h2>Students (<%= @user.tutors.find(@user.id).students.count %>): </h2>
-    <% if @user.tutors.find(@user.id).students.any? %>
-      <ol> 
-      <% @user.tutors.find(@user.id).students.all.each do |s| %>
-        <li><p class="name"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%> </p></li>
-      <% end %>
-      </ol>
+    <% TutorSession.where(tutor_id: @user.id).each do |s| %>
+      <% @totalHours += (s.endtime - s.starttime)/3600 %>
     <% end %>
-    
-  <% end %> 
-</section>
+    <% TutorSession.where(student_id: @user.id).each do |s| %>
+      <% @totalHours += (s.endtime - s.starttime)/3600 %>
+    <% end %>
+    <p><strong>Total hours tutored: </strong> <%= @totalHours %></p>
+    <% if @user.role == "Tutor" %>
+      <p><strong>Total amount paid: </strong> <%= number_to_currency(@totalHours * @user.tutors.find(@user.id).rate)%></p>
+    <% end %>
+  </section>
+</div>
 
-</aside>
+<div class="container">
+  <section id="tutor_student">
+    <% if @user.role == "Student" %>
+    <h2> Current Tutors (<%= @user.students.find(@user.id).tutors.count %>) </h2>
+      <% if @user.students.find(@user.id).tutors.any? %>
+        <ol> 
+        <% @user.students.find(@user.id).tutors.all.each do |t| %>
+          <li><p class="name"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></p></li>
+        <% end %>
+        </ol>
+
+      <% else %>
+        <p>You currently have no tutors. Please choose and add one from <%= link_to "tutors page", tutors_path %>. </p>
+      <% end %>
+
+    <% elsif @user.role == "Tutor" %>
+    <h2>Current Students (<%= @user.tutors.find(@user.id).students.count %>) </h2>
+      <% if @user.tutors.find(@user.id).students.any? %>
+        <ol> 
+        <% @user.tutors.find(@user.id).students.all.each do |s| %>
+          <li><p class="name"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%> </p></li>
+        <% end %>
+        </ol>
+      <% end %>
+      
+    <% end %> 
+  </section>
+</div>
 
 

@@ -16,50 +16,50 @@
       </div>
     <% end %>
 
-    <p>
+    <div class="form-group">
       <%= form.label :"first name" %><br>
-      <%= form.text_field :firstname %>
-    </p>
+      <%= form.text_field :firstname, class: 'form-control' %>
+    </div>
 
-    <p>
+    <div class="form-group">
 	   <%= form.label :"last name" %><br>
-     <%= form.text_field :lastname %>
-    </p>
+     <%= form.text_field :lastname, class: 'form-control' %>
+    </div>
 
-    <p>
-      <%= form.radio_button :gender, "male" %>
-      <%= form.label :gender, "Male" %>
-      <%= form.radio_button :gender, "female" %>
-      <%= form.label :gender, "Female" %>
-    </p>
+    <div class="form-check form-check-inline">
+      <%= form.radio_button :gender, "male", class: 'form-check-input' %>
+      <%= form.label :gender, "Male", class: 'form-check-label' %> 
+      <%= form.radio_button :gender, "female", class: 'form-check-input' %>
+      <%= form.label :gender, "Female", class: 'form-check-label' %>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= form.label :location %><br>
-      <%= form.text_field :location %>
-    </p>
+      <%= form.text_field :location, class: 'form-control' %>
+    </div>
 
-    <p>
-      <%= form.select :role, ["Tutor", "Student"]%>
-    </p >
+    <div class="form-group">
+      <%= form.select :role, ["Tutor", "Student"], class: 'form-control' %>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= form.label :education_level %><br>
-      <%= form.text_field :education_level %>
-    </p> 
+      <%= form.text_field :education_level, class: 'form-control' %>
+    </div>
 
-    <p>
+    <div class="form-group">
       <%= form.label :"email address" %><br>
-      <%= form.email_field :username %>
-    </p>
+      <%= form.email_field :username, class: 'form-control' %>
+   </div>
 
-    <p>
+    <div class="form-group">
       <%= form.label :password %><br>
-      <%= form.password_field :password %>
-    </p>
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
 
-    <p>
-      <%= form.submit "Sign Up" %>
-    </p>
+    <div class="form-group">
+      <%= form.submit "Sign Up", class: 'btn btn-primary' %>
+    </div>
 
       <% end %>
   </body>

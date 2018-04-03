@@ -1,30 +1,36 @@
-<li id="tutor_session-<%= tutor_session.id %>" class="tutor_session_list">
-<% if @user.role == "Tutor" %>
-	<% if tutor_session.student_id == nil %>
-	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.user_id).firstname %></span></span>
-	<% else %>
-	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.student_id).firstname %></span> </span>
-	<% end %>
-<% end %>
+<div class="card">
+	<li id="tutor_session-<%= tutor_session.id %>" class="tutor_session_list">
+		<div class="card-body">
+		<% if @user.role == "Tutor" %>
+			<% if tutor_session.student_id == nil %>
+			<h4 class="subject card-title"><%= tutor_session.subject%></h4> 
+			<h5 class="name card-subtitle mb-2 text-muted">with <%= User.find(tutor_session.user_id).firstname %></h5>
+			<% else %>
+			<h4 class="subject card-title"><%= tutor_session.subject%></h4>
+			<h5 class="name card-subtitle mb-2 text-muted"> with <%= User.find(tutor_session.student_id).firstname %></h5> 
+			<% end %>
+		<% end %>
 
-<% if @user.role == "Student" %>
-	<% if tutor_session.tutor_id == nil %>
-	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.user_id).firstname %></span></span>
-	<% else %>
-	<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.tutor_id).firstname %></span> </span>
-	<% end %>
-<% end %>
-<span class="date"><%= tutor_session.date.strftime("%a, %B %d, %Y") %></span>
-<span class="time"><%= tutor_session.starttime.time.strftime("%I:%M %p") %> - <%= tutor_session.endtime.time.strftime("%I:%M %p") %></span>
-<span><%= (tutor_session.endtime - tutor_session.starttime)/3600%> hour(s)</span>
-<span>Created by <span class="name"><%= User.find(tutor_session.user_id).firstname %></span> </span>
+		<% if @user.role == "Student" %>
+			<% if tutor_session.tutor_id == nil %>
+			<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.user_id).firstname %></span></span>
+			<% else %>
+			<span class="subject"><%= tutor_session.subject%> with <span class="name"><%= User.find(tutor_session.tutor_id).firstname %></span> </span>
+			<% end %>
+		<% end %>
+		<p class="date card-text"><%= tutor_session.date.strftime("%a, %B %d, %Y") %></p>
+		<p class="time card-text"><%= tutor_session.starttime.time.strftime("%I:%M %p") %> - <%= tutor_session.endtime.time.strftime("%I:%M %p") %></p>
+		<p class="card-text"><%= (tutor_session.endtime - tutor_session.starttime)/3600%> hour(s)</p>
+		<small class="card-text">Created by <span class="name"><%= User.find(tutor_session.user_id).firstname %></span> </small></br>
 
-<% if tutor_session.user_id == @user.id %>
-<span class="edit"><%= link_to "Edit",  edit_tutor_session_path %></span>
-<span class="delete"><%= link_to "Delete", tutor_session_path,method: :delete,data: { confirm: 'Are you sure?' } %></span>
-<% end %>
-<!-- <span class="timestamp">
+		<% if tutor_session.user_id == @user.id %>
+		<span class="edit"><%= link_to "Edit",  edit_tutor_session_path, class: 'card-link' %></span>
+		<span class="delete"><%= link_to "Delete", tutor_session_path,method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link' %></span>
+		<% end %>
+		<!-- <span class="timestamp">
 
-  Created <%= time_ago_in_words(tutor_session.created_at) %> ago.
-</span> -->
-</li>
+		  Created <%= time_ago_in_words(tutor_session.created_at) %> ago.
+	</span> -->
+		</div>
+	</li>
+</div>

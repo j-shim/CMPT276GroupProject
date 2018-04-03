@@ -1,8 +1,9 @@
 <% provide(:title, "Tutors") %>
 <%= render 'layouts/header' %>
 <h2 id="page-title">Our Tutors</h2>
-<div class="container">
-	<% User.where(role: "Tutor").each do |user| %>
+
+<% User.where(role: "Tutor").each do |user| %>
+	<div class="container">
 	<h3 class="name"><%= user.firstname + " " + user.lastname%></h3>
 		<p><strong>Location: </strong><span class="name"><%= user.location %></span> </p>
 		<p><strong>Education level: </strong><%= user.education_level %></p>
@@ -11,7 +12,21 @@
 		 	<p><strong>Rate: </strong><%= number_to_currency(tutor.rate) %>/hr</p>
 		 	<p><strong>Bio: </strong><%= tutor.bio %></p>
 		      <p><strong>Subjects: </strong><span class="name"><%= tutor.subjects %></span> </p>
+ 
+		    <% if current_user.role == "Student" %>
+				<% if current_user.students.find(current_user.id).tutors.exists?(tutor.user_id) %>
+					<p>You have already added this tutor.</p>
+
+				<% else %>
+
+					<%= link_to 'Confirm', create_student_tutor_path(:tutor_id => tutor.user_id, :student_id => current_user.id), :method => :post, class: 'btn btn-primary', data: {title: 'Are You Sure?',confirm: 'Confirm to add this tutor', commit: 'Confirm'} %>
+
+				<% end %>
+
+			<% end %>
 	 	<% end %>
-		</br>
-	<% end %>
-</div>
+
+	</div>
+	</br>
+<% end %>
+
