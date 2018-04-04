@@ -1,8 +1,10 @@
 <% provide(:title, @user.username) %>
 <%= render 'layouts/header' %>
 <div class="container">
+  <p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
+  <div class="row">
+    <div class="col">
   <section class="user_info">
-  	<p><strong> Welcome back, <span class="name"><%= @user.firstname %></span>!</strong></p>
   	<h2>Profile</h2>
     <p><strong>Account type: </strong><%= @user.role %></p></br>
     <p><strong>Full name: </strong><span class="name"><%= @user.firstname + " " + @user.lastname %></span></p>
@@ -20,9 +22,7 @@
 
     <p><%= link_to "Update profile",  edit_user_path, class: 'btn btn-primary' %></p>
   </section>
-</div>
 
-<div class="container">
   <section class="tutor_session">
   <h2>Sessions (<%= @user.tutor_sessions.count + TutorSession.where(student_id: @user.id).count + TutorSession.where(tutor_id: @user.id).count %>)</h2>
   <% if @user.tutor_sessions.any? || TutorSession.where(student_id: @user.id).any? || TutorSession.where(tutor_id: @user.id).any? %>
@@ -53,19 +53,6 @@
    
     
     <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
-     <% if @tutor_session.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert alert-danger">
-          Creating a tutor session contains <%= pluralize(@tutor_session.errors.count, "error") %>.
-        </div>
-        <ul>
-          <% @tutor_session.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    
     <div class="form-group">
       <%= f.label :subject %>
       <%= f.text_field :subject, class: 'form-control' %>
@@ -112,7 +99,7 @@
   </section>
 </div>
 
-<div class="container">
+<div class="col">
   <section id="progress">
     <h2>Progress</h2>
     <% @user.tutor_sessions.all.each do |s| %>
@@ -129,9 +116,7 @@
       <p><strong>Total amount paid: </strong> <%= number_to_currency(@totalHours * @user.tutors.find(@user.id).rate)%></p>
     <% end %>
   </section>
-</div>
 
-<div class="container">
   <section id="tutor_student">
     <% if @user.role == "Student" %>
     <h2> Current Tutors (<%= @user.students.find(@user.id).tutors.count %>) </h2>
@@ -158,6 +143,8 @@
       
     <% end %> 
   </section>
+  </div><!-- end of second col div -->
+  </div> <!-- end of first row div -->
 </div>
 
 

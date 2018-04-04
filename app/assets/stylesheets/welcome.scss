@@ -5,7 +5,7 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 $green: #09AA4B;
-$borderRadius: 3px;
+$borderRadius: 5px;
 
 label {
   font-weight:bold;
@@ -25,8 +25,11 @@ li:not(.tutor_session_list) a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border: 1px solid transparent;
 }
 
 li:not(.tutor_session_list) a:hover:not(.active) {
-  background-color: #095e2b;
+	background-color: $green;
+    border: 1px solid #fff;
+    border-radius: $borderRadius
 }

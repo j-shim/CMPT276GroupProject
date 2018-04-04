@@ -19,7 +19,7 @@
 
 				<% else %>
 
-					<%= link_to 'Confirm', create_student_tutor_path(:tutor_id => tutor.user_id, :student_id => current_user.id), :method => :post, class: 'btn btn-primary', data: {title: 'Are You Sure?',confirm: 'Confirm to add this tutor', commit: 'Confirm'} %>
+					<%= link_to 'Add tutor', create_student_tutor_path(:tutor_id => tutor.user_id, :student_id => current_user.id), :method => :post, class: 'btn btn-primary', data: {title: 'Are You Sure?',confirm: 'Confirm to add this tutor', commit: 'Confirm'} %>
 
 				<% end %>
 

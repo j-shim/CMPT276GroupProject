@@ -3,12 +3,27 @@
 
 $primary-color: #333;
 $green: #09AA4B;
-$borderRadius: 3px;
+$borderRadius: 5px;
 
 body {
-  color: $primary-color;
-  margin: 0 auto;
-  font-size: 14px !important;
+	color: $primary-color;
+	margin: 0 auto;
+	font-size: 14px !important;
+	background: #ffffff image-url('school.png') repeat;
+	background-repeat: repeat;
+}
+
+.container {
+	background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: $borderRadius;
+}
+
+section {
+	margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid darkolivegreen;
 }
 
 .bg-primary {
@@ -31,7 +46,7 @@ h1,h2,h3,h4,h5,h6 {
 
 nav {
 	background-color: $green;
-	height: 90px;
+	height: 70px;
 }
 
 .navbar {
@@ -40,7 +55,7 @@ nav {
 
 #logo {
 	float: left;
-	margin: 2%;
+	margin: 1%;
 	margin-bottom: 10px; 
 	color: #fff;
 }
@@ -51,15 +66,19 @@ ul.nav {
 	padding: 0;
 	overflow: hidden;
 	position: relative;
-  	top: 25%;
+  	top: 15%;
 }
 
 .nav > li > a {
 	font-size: 1.1em;
 }
 
+.row {
+	display: flex;
+}
+
 #page-title {
- 	background: #f2f2f2;
+ 	background: rgba(255, 255, 255, 0.9);
  	color: #09AA4B;
  	padding: 15px;
 }
@@ -95,7 +114,7 @@ button {
 
 .btn-primary:hover {
 	border-color: $green;
-	background-color: transparent;
+	background-color: #fff;
 	color: $green;
 }
 
