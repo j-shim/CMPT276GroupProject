@@ -53,6 +53,19 @@
    
     
     <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
+     <% if @tutor_session.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          Creating a tutor session contains <%= pluralize(@tutor_session.errors.count, "error") %>.
+        </div>
+        <ul>
+          <% @tutor_session.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
     <div class="form-group">
       <%= f.label :subject %>
       <%= f.text_field :subject, class: 'form-control' %>
