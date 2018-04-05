@@ -11,7 +11,23 @@
 		 	<p><strong>School: </strong><span class="name"><%= tutor.school %></span>  </p>
 		 	<p><strong>Rate: </strong><%= number_to_currency(tutor.rate) %>/hr</p>
 		 	<p><strong>Bio: </strong><%= tutor.bio %></p>
-		      <p><strong>Subjects: </strong><span class="name"><%= tutor.subjects %></span> </p>
+		  <p><strong>Subjects: </strong><span class="name"><%= tutor.subjects %></span> </p>
+
+      <p><strong>Comments from the students:</strong></p>
+        <% user.comments.each do |comment| %>
+          <p>
+            <%= comment.body %>
+          </p>
+        <% end %>
+        <p><strong>Add a comment:</strong></p>
+            <%= form_with(model: [ user, user.comments.build ], local: true) do |form| %>
+            <p>
+                <%= form.text_field :body %>
+            </p>
+            <p>
+                <%= form.submit %>
+            </p>
+            <% end %>
  
 		    <% if current_user.role == "Student" %>
 				<% if current_user.students.find(current_user.id).tutors.exists?(tutor.user_id) %>

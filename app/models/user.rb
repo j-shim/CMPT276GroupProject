@@ -19,7 +19,7 @@ class User < ApplicationRecord
   	validates :password, presence: true, length: {minimum:6} #minimum length of the password is 6
 
     before_save :changecase_fields
-
+    has_many :comments
     def changecase_fields
       self.firstname.capitalize!
       self.lastname.capitalize!

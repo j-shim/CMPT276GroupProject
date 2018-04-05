@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
 
 
-  resources :users
+  resources :users do
+    resources :comments
+  end
   resources :tutor_sessions,          only: [:create, :destroy,:edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
