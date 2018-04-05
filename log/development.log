@@ -33581,3 +33581,742 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 1372ms (Views: 1163.3ms | ActiveRecord: 54.8ms)
 
 
+Started GET "/tutor_sessions" for 127.0.0.1 at 2018-04-05 10:27:23 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/tutor_sessions"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-04-05 10:27:27 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (19.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 11805ms (Views: 11801.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-04-05 10:27:49 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5NE4Z1YvCq2b2pdNFm5zaTn6OVhowRxvivuou+VtfaUDM0DJrCuIqEMmlLpxv5ZwJRELMqT4iGvnpQg4w2lzWw==", "user"=>{"username"=>"ja@sfu.ca", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ja@sfu.ca"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 103ms (Views: 100.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-04-05 10:27:50 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered users/new.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 169ms (Views: 149.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2018-04-05 10:28:12 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3vFqv2bQLDBWcuPMyUPdrQkW71VvkNpz5Hr7QEjrZxGvDvGSbnYQ9T9lZtQoAGQyrjnaOLWt6CglDZr0ATllYg==", "user"=>{"firstname"=>"james", "lastname"=>"andreson", "gender"=>"male", "location"=>"Burnaby", "role"=>"Student", "education_level"=>"university", "username"=>"ja@sfu.ca", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "ja@sfu.ca"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "username", "gender", "role", "location", "created_at", "updated_at", "password_digest", "education_level") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "James"], ["lastname", "Andreson"], ["username", "ja@sfu.ca"], ["gender", "male"], ["role", "Student"], ["location", "Burnaby"], ["created_at", "2018-04-05 17:28:13.047804"], ["updated_at", "2018-04-05 17:28:13.047804"], ["password_digest", "$2a$10$004SmIok87M8hZkZM/mCm.iCUsoDi0lv0xT2xnsTTvXUH6CTf3/3y"], ["education_level", "university"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["username", "ja@sfu.ca"], ["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "students" ("user_id", "created_at", "updated_at", "need_parent", "parent_firstname", "parent_lastname") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 12], ["created_at", "2018-04-05 17:28:13.095759"], ["updated_at", "2018-04-05 17:28:13.095759"], ["need_parent", "f"], ["parent_firstname", "none"], ["parent_lastname", "none"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["username", "ja@sfu.ca"], ["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 129ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2018-04-05 10:28:13 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 12]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 12], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 12]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["tutor_id", 12]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["student_id", 12]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 187ms (Views: 162.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/tutors" for 127.0.0.1 at 2018-04-05 10:28:16 -0700
+Processing by WelcomeController#tutors as HTML
+  Rendering welcome/tutors.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ?[0m  [["role", "Tutor"]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["student_id", 12], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["student_id", 12], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["student_id", 12], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["student_id", 12], ["user_id", 5], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.1ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? AND "tutors"."user_id" = ? LIMIT ?[0m  [["student_id", 12], ["user_id", 11], ["LIMIT", 1]]
+  Rendered welcome/tutors.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 110ms (Views: 104.5ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/create_student_tutor?student_id=12&tutor_id=2" for 127.0.0.1 at 2018-04-05 10:28:19 -0700
+Processing by UsersController#create_student_tutor as HTML
+  Parameters: {"authenticity_token"=>"RObz6cjZTRxwnNv/Ep8+i3P7z6A1VYGcEmnIZ2xe976jBItHMt3PGahg2Ah1TtuSbxD9yvlsFZh/N2jkSlr5QA==", "student_id"=>"12", "tutor_id"=>"2"}
+  [1m[36mTutor Load (0.3ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "students_tutors" ("tutor_id", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tutor_id", 2], ["student_id", 12], ["created_at", "2018-04-05 17:28:19.355930"], ["updated_at", "2018-04-05 17:28:19.355930"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 17ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2018-04-05 10:28:19 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 12]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? LIMIT ?[0m  [["tutor_id", 12], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.4ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 12]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["tutor_id", 12]]
+  [1m[36mTutorSession Load (0.1ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["student_id", 12]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 92ms (Views: 85.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/tutor_sessions" for 127.0.0.1 at 2018-04-05 10:28:26 -0700
+Processing by TutorSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9q14z+jwt/wJb9vQJAtFgx0zuj8pxmX5cXW6vyeCLB0RTwBhEvQ1+dGT2CdD2qCaAdiIVeX/8f0cKxo8AYYi4w==", "tutor_session"=>{"subject"=>"english", "tutor_id"=>"2", "date(1i)"=>"2018", "date(2i)"=>"4", "date(3i)"=>"5", "starttime(1i)"=>"2018", "starttime(2i)"=>"4", "starttime(3i)"=>"5", "starttime(4i)"=>"17", "starttime(5i)"=>"28", "endtime(1i)"=>"2018", "endtime(2i)"=>"4", "endtime(3i)"=>"5", "endtime(4i)"=>"17", "endtime(5i)"=>"28"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tutor_sessions" ("subject", "created_at", "updated_at", "date", "starttime", "endtime", "time_duration", "user_id", "tutor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["subject", "english"], ["created_at", "2018-04-05 17:28:26.351602"], ["updated_at", "2018-04-05 17:28:26.351602"], ["date", "2018-04-05"], ["starttime", "2018-04-05 17:28:00"], ["endtime", "2018-04-05 17:28:00"], ["time_duration", 0.0], ["user_id", 12], ["tutor_id", 2]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 11ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2018-04-05 10:28:26 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_header.html.erb (1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ?[0m  [["tutor_id", 12]]
+  [1m[36mTutorSession Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT  "tutors".* FROM "tutors" WHERE "tutors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered collection of tutor_sessions/_tutor_session.html.erb [1 times] (3.8ms)
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["student_id", 12]]
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Load (0.2ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."user_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["user_id", 12]]
+  [1m[36mTutorSession Load (0.2ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."tutor_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["tutor_id", 12]]
+  [1m[36mCACHE TutorSession Load (0.0ms)[0m  [1m[34mSELECT "tutor_sessions".* FROM "tutor_sessions" WHERE "tutor_sessions"."student_id" = ? ORDER BY "tutor_sessions"."date" ASC[0m  [["student_id", 12]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mTutor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = ? AND "students"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["user_id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE Tutor Load (0.0ms)[0m  [1m[34mSELECT "tutors".* FROM "tutors" INNER JOIN "students_tutors" ON "tutors"."user_id" = "students_tutors"."tutor_id" WHERE "students_tutors"."student_id" = ?[0m  [["student_id", 12]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 107ms (Views: 93.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/redirect" for 127.0.0.1 at 2018-04-05 10:28:30 -0700
+Processing by CaliController#redirect as HTML
+Redirected to https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=516381975891-tnckshmctas051o0kjbt4fqtpbtdq96b.apps.googleusercontent.com&redirect_uri=http://localhost:3000/callback&response_type=code&scope=https://www.googleapis.com/auth/calendar
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/redirect" for 127.0.0.1 at 2018-04-05 10:28:30 -0700
+Processing by CaliController#redirect as HTML
+Redirected to https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=516381975891-tnckshmctas051o0kjbt4fqtpbtdq96b.apps.googleusercontent.com&redirect_uri=http://localhost:3000/callback&response_type=code&scope=https://www.googleapis.com/auth/calendar
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/callback?code=4/AAC-zatdom1sK8B3JLCHjxT-Y5mweqYR9gki_wuk-RGSpgk0r-96BRE_Tp0Mbm580DL0Y-V4l5Im44Csi0PcVhM" for 127.0.0.1 at 2018-04-05 10:28:32 -0700
+Processing by CaliController#callback as HTML
+  Parameters: {"code"=>"4/AAC-zatdom1sK8B3JLCHjxT-Y5mweqYR9gki_wuk-RGSpgk0r-96BRE_Tp0Mbm580DL0Y-V4l5Im44Csi0PcVhM"}
+Redirected to http://localhost:3000/calendars
+Completed 302 Found in 168ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2018-04-05 10:28:32 -0700
+Processing by CaliController#calendars as HTML
+Sending HTTP get https://www.googleapis.com/calendar/v3/users/me/calendarList?
+200
+#<HTTP::Message:0x00007f974ead6730 @http_header=#<HTTP::Message::Headers:0x00007f974ead6708 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fcba756e3cc URI:https://www.googleapis.com/calendar/v3/users/me/calendarList?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["Expires", "Thu, 05 Apr 2018 17:28:33 GMT"], ["Date", "Thu, 05 Apr 2018 17:28:33 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["X-Content-Type-Options", "nosniff"], ["X-Frame-Options", "SAMEORIGIN"], ["X-XSS-Protection", "1; mode=block"], ["Server", "GSE"], ["Alt-Svc", "hq=\":443\"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"42,41,39,35\""], ["Transfer-Encoding", "chunked"]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name:0x00007f974eaaede8>, issuer=#<OpenSSL::X509::Name:0x00007f974eaaebe0>, serial=#<OpenSSL::BN:0x00007f974eaaeb90>, not_before=2018-03-20 18:13:48 UTC, not_after=2018-06-12 16:56:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f974ead6640 @body="{\n \"kind\": \"calendar#calendarList\",\n \"etag\": \"\\\"p32cbptfmpqhtk0g\\\"\",\n \"nextSyncToken\": \"CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=\",\n \"items\": [\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119364441000\\\"\",\n   \"id\": \"tutor4me276@gmail.com\",\n   \"summary\": \"tutor4me276@gmail.com\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"14\",\n   \"backgroundColor\": \"#9fe1e7\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"owner\",\n   \"defaultReminders\": [\n    {\n     \"method\": \"popup\",\n     \"minutes\": 30\n    }\n   ],\n   \"notificationSettings\": {\n    \"notifications\": [\n     {\n      \"type\": \"eventCreation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventChange\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventCancellation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventResponse\",\n      \"method\": \"email\"\n     }\n    ]\n   },\n   \"primary\": true,\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  },\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119362137000\\\"\",\n   \"id\": \"#contacts@group.v.calendar.google.com\",\n   \"summary\": \"Contacts\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"13\",\n   \"backgroundColor\": \"#92e1c0\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"reader\",\n   \"defaultReminders\": [],\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  }\n ]\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::CalendarV3::CalendarList:0x00007f974eaadcb8
+ @etag="\"p32cbptfmpqhtk0g\"",
+ @items=
+  [#<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974ea9c148
+    @access_role="owner",
+    @background_color="#9fe1e7",
+    @color_id="14",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974ea8d6c0
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=
+     [#<Google::Apis::CalendarV3::EventReminder:0x00007f974ea7f430
+       @minutes=30,
+       @reminder_method="popup">],
+    @etag="\"1522119364441000\"",
+    @foreground_color="#000000",
+    @id="tutor4me276@gmail.com",
+    @kind="calendar#calendarListEntry",
+    @notification_settings=
+     #<Google::Apis::CalendarV3::CalendarListEntry::NotificationSettings:0x00007f974b69e670
+      @notifications=
+       [#<Google::Apis::CalendarV3::CalendarNotification:0x00007f974b69d888
+         @delivery_method="email",
+         @type="eventCreation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974ea67600
+         @delivery_method="email",
+         @type="eventChange">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974ea65cd8
+         @delivery_method="email",
+         @type="eventCancellation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974ea640e0
+         @delivery_method="email",
+         @type="eventResponse">]>,
+    @primary=true,
+    @selected=true,
+    @summary="tutor4me276@gmail.com",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974ea47670
+    @access_role="reader",
+    @background_color="#92e1c0",
+    @color_id="13",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974ea447b8
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=[],
+    @etag="\"1522119362137000\"",
+    @foreground_color="#000000",
+    @id="#contacts@group.v.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Contacts",
+    @time_zone="America/Vancouver">],
+ @kind="calendar#calendarList",
+ @next_sync_token="CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=">
+
+Sending HTTP get https://www.googleapis.com/calendar/v3/users/me/calendarList?
+200
+#<HTTP::Message:0x00007f974e2313a0 @http_header=#<HTTP::Message::Headers:0x00007f974e231350 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fcba7119150 URI:https://www.googleapis.com/calendar/v3/users/me/calendarList?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["Expires", "Thu, 05 Apr 2018 17:28:33 GMT"], ["Date", "Thu, 05 Apr 2018 17:28:33 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["X-Content-Type-Options", "nosniff"], ["X-Frame-Options", "SAMEORIGIN"], ["X-XSS-Protection", "1; mode=block"], ["Server", "GSE"], ["Alt-Svc", "hq=\":443\"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"42,41,39,35\""], ["Transfer-Encoding", "chunked"]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name:0x00007f974e21a420>, issuer=#<OpenSSL::X509::Name:0x00007f974e21a3f8>, serial=#<OpenSSL::BN:0x00007f974e21a3d0>, not_before=2018-03-20 18:13:48 UTC, not_after=2018-06-12 16:56:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f974e231260 @body="{\n \"kind\": \"calendar#calendarList\",\n \"etag\": \"\\\"p32cbptfmpqhtk0g\\\"\",\n \"nextSyncToken\": \"CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=\",\n \"items\": [\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119364441000\\\"\",\n   \"id\": \"tutor4me276@gmail.com\",\n   \"summary\": \"tutor4me276@gmail.com\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"14\",\n   \"backgroundColor\": \"#9fe1e7\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"owner\",\n   \"defaultReminders\": [\n    {\n     \"method\": \"popup\",\n     \"minutes\": 30\n    }\n   ],\n   \"notificationSettings\": {\n    \"notifications\": [\n     {\n      \"type\": \"eventCreation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventChange\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventCancellation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventResponse\",\n      \"method\": \"email\"\n     }\n    ]\n   },\n   \"primary\": true,\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  },\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119362137000\\\"\",\n   \"id\": \"#contacts@group.v.calendar.google.com\",\n   \"summary\": \"Contacts\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"13\",\n   \"backgroundColor\": \"#92e1c0\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"reader\",\n   \"defaultReminders\": [],\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  }\n ]\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::CalendarV3::CalendarList:0x00007f974e219b60
+ @etag="\"p32cbptfmpqhtk0g\"",
+ @items=
+  [#<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974e212ef0
+    @access_role="owner",
+    @background_color="#9fe1e7",
+    @color_id="14",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974e212040
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=
+     [#<Google::Apis::CalendarV3::EventReminder:0x00007f974e210fb0
+       @minutes=30,
+       @reminder_method="popup">],
+    @etag="\"1522119364441000\"",
+    @foreground_color="#000000",
+    @id="tutor4me276@gmail.com",
+    @kind="calendar#calendarListEntry",
+    @notification_settings=
+     #<Google::Apis::CalendarV3::CalendarListEntry::NotificationSettings:0x00007f974e20ab38
+      @notifications=
+       [#<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e20a390
+         @delivery_method="email",
+         @type="eventCreation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e2095d0
+         @delivery_method="email",
+         @type="eventChange">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e208c48
+         @delivery_method="email",
+         @type="eventCancellation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e208248
+         @delivery_method="email",
+         @type="eventResponse">]>,
+    @primary=true,
+    @selected=true,
+    @summary="tutor4me276@gmail.com",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974e202cd0
+    @access_role="reader",
+    @background_color="#92e1c0",
+    @color_id="13",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974e201ee8
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=[],
+    @etag="\"1522119362137000\"",
+    @foreground_color="#000000",
+    @id="#contacts@group.v.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Contacts",
+    @time_zone="America/Vancouver">],
+ @kind="calendar#calendarList",
+ @next_sync_token="CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=">
+
+Redirected to http://localhost:3000/events/tutor4me276@gmail.com
+Completed 302 Found in 513ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/tutor4me276@gmail.com" for 127.0.0.1 at 2018-04-05 10:28:33 -0700
+Processing by CaliController#events as HTML
+  Parameters: {"calendar_id"=>"tutor4me276@gmail.com"}
+Sending HTTP get https://www.googleapis.com/calendar/v3/calendars/tutor4me276%40gmail.com/events?
+200
+#<HTTP::Message:0x00007f974e17a358 @http_header=#<HTTP::Message::Headers:0x00007f974e17a330 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fcba70bd65c URI:https://www.googleapis.com/calendar/v3/calendars/tutor4me276%40gmail.com/events?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["Expires", "Thu, 05 Apr 2018 17:28:33 GMT"], ["Date", "Thu, 05 Apr 2018 17:28:33 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["X-Content-Type-Options", "nosniff"], ["X-Frame-Options", "SAMEORIGIN"], ["X-XSS-Protection", "1; mode=block"], ["Server", "GSE"], ["Alt-Svc", "hq=\":443\"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"42,41,39,35\""], ["Transfer-Encoding", "chunked"]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name:0x00007f974e163590>, issuer=#<OpenSSL::X509::Name:0x00007f974e163568>, serial=#<OpenSSL::BN:0x00007f974e163518>, not_before=2018-03-20 18:13:48 UTC, not_after=2018-06-12 16:56:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f974e17a2b8 @body="{\n \"kind\": \"calendar#events\",\n \"etag\": \"\\\"p32cbptfmpqhtk0g\\\"\",\n \"summary\": \"tutor4me276@gmail.com\",\n \"updated\": \"2018-04-05T17:04:31.039Z\",\n \"timeZone\": \"America/Vancouver\",\n \"accessRole\": \"owner\",\n \"defaultReminders\": [\n  {\n   \"method\": \"popup\",\n   \"minutes\": 30\n  }\n ],\n \"nextSyncToken\": \"CJi89fbOo9oCEJi89fbOo9oCGAU=\",\n \"items\": [\n  {\n   \"kind\": \"calendar#event\",\n   \"etag\": \"\\\"3044574637912000\\\"\",\n   \"id\": \"g0udb6isk7oe5madp2ogc332go\",\n   \"status\": \"confirmed\",\n   \"htmlLink\": \"https://www.google.com/calendar/event?eid=ZzB1ZGI2aXNrN29lNW1hZHAyb2djMzMyZ28gdHV0b3I0bWUyNzZAbQ\",\n   \"created\": \"2018-03-29T01:35:18.000Z\",\n   \"updated\": \"2018-03-29T01:35:18.956Z\",\n   \"summary\": \"12345\",\n   \"creator\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"organizer\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"start\": {\n    \"dateTime\": \"2015-05-28T09:00:00-07:00\"\n   },\n   \"end\": {\n    \"dateTime\": \"2015-05-28T17:00:00-07:00\"\n   },\n   \"iCalUID\": \"g0udb6isk7oe5madp2ogc332go@google.com\",\n   \"sequence\": 0,\n   \"reminders\": {\n    \"useDefault\": true\n   }\n  },\n  {\n   \"kind\": \"calendar#event\",\n   \"etag\": \"\\\"3045888945928000\\\"\",\n   \"id\": \"236a85e8a9fucup7jhbfh6fp2k\",\n   \"status\": \"confirmed\",\n   \"htmlLink\": \"https://www.google.com/calendar/event?eid=MjM2YTg1ZThhOWZ1Y3VwN2poYmZoNmZwMmsgdHV0b3I0bWUyNzZAbQ\",\n   \"created\": \"2018-04-05T16:07:52.000Z\",\n   \"updated\": \"2018-04-05T16:07:52.964Z\",\n   \"summary\": \"test3\",\n   \"creator\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"organizer\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"start\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"end\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"iCalUID\": \"236a85e8a9fucup7jhbfh6fp2k@google.com\",\n   \"sequence\": 0,\n   \"reminders\": {\n    \"useDefault\": true\n   }\n  },\n  {\n   \"kind\": \"calendar#event\",\n   \"etag\": \"\\\"3045889101244000\\\"\",\n   \"id\": \"7obovh4i0t79iova27tv4puaok\",\n   \"status\": \"confirmed\",\n   \"htmlLink\": \"https://www.google.com/calendar/event?eid=N29ib3ZoNGkwdDc5aW92YTI3dHY0cHVhb2sgdHV0b3I0bWUyNzZAbQ\",\n   \"created\": \"2018-04-05T16:09:10.000Z\",\n   \"updated\": \"2018-04-05T16:09:10.622Z\",\n   \"summary\": \"test1\",\n   \"creator\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"organizer\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"start\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"end\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"iCalUID\": \"7obovh4i0t79iova27tv4puaok@google.com\",\n   \"sequence\": 0,\n   \"reminders\": {\n    \"useDefault\": true\n   }\n  }\n ]\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::CalendarV3::Events:0x00007f974e162c80
+ @access_role="owner",
+ @default_reminders=
+  [#<Google::Apis::CalendarV3::EventReminder:0x00007f974e15b548
+    @minutes=30,
+    @reminder_method="popup">],
+ @etag="\"p32cbptfmpqhtk0g\"",
+ @items=
+  [#<Google::Apis::CalendarV3::Event:0x00007f974e159f90
+    @created=Thu, 29 Mar 2018 01:35:18 +0000,
+    @creator=
+     #<Google::Apis::CalendarV3::Event::Creator:0x00007f9749b3f2d0
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @end=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f9749b3d638
+      @date_time=Thu, 28 May 2015 17:00:00 -0700>,
+    @etag="\"3044574637912000\"",
+    @html_link=
+     "https://www.google.com/calendar/event?eid=ZzB1ZGI2aXNrN29lNW1hZHAyb2djMzMyZ28gdHV0b3I0bWUyNzZAbQ",
+    @i_cal_uid="g0udb6isk7oe5madp2ogc332go@google.com",
+    @id="g0udb6isk7oe5madp2ogc332go",
+    @kind="calendar#event",
+    @organizer=
+     #<Google::Apis::CalendarV3::Event::Organizer:0x00007f974e1502b0
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @reminders=
+     #<Google::Apis::CalendarV3::Event::Reminders:0x00007f974e1495c8
+      @use_default=true>,
+    @sequence=0,
+    @start=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974e143c18
+      @date_time=Thu, 28 May 2015 09:00:00 -0700>,
+    @status="confirmed",
+    @summary="12345",
+    @updated=Thu, 29 Mar 2018 01:35:18 +0000>,
+   #<Google::Apis::CalendarV3::Event:0x00007f974e140e00
+    @created=Thu, 05 Apr 2018 16:07:52 +0000,
+    @creator=
+     #<Google::Apis::CalendarV3::Event::Creator:0x00007f974e13ac58
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @end=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974e1395b0
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @etag="\"3045888945928000\"",
+    @html_link=
+     "https://www.google.com/calendar/event?eid=MjM2YTg1ZThhOWZ1Y3VwN2poYmZoNmZwMmsgdHV0b3I0bWUyNzZAbQ",
+    @i_cal_uid="236a85e8a9fucup7jhbfh6fp2k@google.com",
+    @id="236a85e8a9fucup7jhbfh6fp2k",
+    @kind="calendar#event",
+    @organizer=
+     #<Google::Apis::CalendarV3::Event::Organizer:0x00007f974e131900
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @reminders=
+     #<Google::Apis::CalendarV3::Event::Reminders:0x00007f974e12bc30
+      @use_default=true>,
+    @sequence=0,
+    @start=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974e12abc8
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @status="confirmed",
+    @summary="test3",
+    @updated=Thu, 05 Apr 2018 16:07:52 +0000>,
+   #<Google::Apis::CalendarV3::Event:0x00007f974e1287b0
+    @created=Thu, 05 Apr 2018 16:09:10 +0000,
+    @creator=
+     #<Google::Apis::CalendarV3::Event::Creator:0x00007f974e122a68
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @end=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974e1217f8
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @etag="\"3045889101244000\"",
+    @html_link=
+     "https://www.google.com/calendar/event?eid=N29ib3ZoNGkwdDc5aW92YTI3dHY0cHVhb2sgdHV0b3I0bWUyNzZAbQ",
+    @i_cal_uid="7obovh4i0t79iova27tv4puaok@google.com",
+    @id="7obovh4i0t79iova27tv4puaok",
+    @kind="calendar#event",
+    @organizer=
+     #<Google::Apis::CalendarV3::Event::Organizer:0x00007f974e11a2f0
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @reminders=
+     #<Google::Apis::CalendarV3::Event::Reminders:0x00007f974e1188d8
+      @use_default=true>,
+    @sequence=0,
+    @start=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974e113860
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @status="confirmed",
+    @summary="test1",
+    @updated=Thu, 05 Apr 2018 16:09:10 +0000>],
+ @kind="calendar#events",
+ @next_sync_token="CJi89fbOo9oCEJi89fbOo9oCGAU=",
+ @summary="tutor4me276@gmail.com",
+ @time_zone="America/Vancouver",
+ @updated=Thu, 05 Apr 2018 17:04:31 +0000>
+
+  Rendering cali/events.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered cali/events.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 488ms (Views: 77.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/redirect" for 127.0.0.1 at 2018-04-05 10:29:33 -0700
+Processing by CaliController#redirect as HTML
+Redirected to https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=516381975891-tnckshmctas051o0kjbt4fqtpbtdq96b.apps.googleusercontent.com&redirect_uri=http://localhost:3000/callback&response_type=code&scope=https://www.googleapis.com/auth/calendar
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/redirect" for 127.0.0.1 at 2018-04-05 10:29:33 -0700
+Processing by CaliController#redirect as HTML
+Redirected to https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=516381975891-tnckshmctas051o0kjbt4fqtpbtdq96b.apps.googleusercontent.com&redirect_uri=http://localhost:3000/callback&response_type=code&scope=https://www.googleapis.com/auth/calendar
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/callback?code=4/AADoGTPuLtyiVkyoFO-Q779mWwscS-cXTxY3hQ-JXTXZs0_QYDRe-fj2XVWwmURg-ciDmoDfBSND59mzaH2DxMg" for 127.0.0.1 at 2018-04-05 10:29:35 -0700
+Processing by CaliController#callback as HTML
+  Parameters: {"code"=>"4/AADoGTPuLtyiVkyoFO-Q779mWwscS-cXTxY3hQ-JXTXZs0_QYDRe-fj2XVWwmURg-ciDmoDfBSND59mzaH2DxMg"}
+Redirected to http://localhost:3000/calendars
+Completed 302 Found in 166ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/calendars" for 127.0.0.1 at 2018-04-05 10:29:35 -0700
+Processing by CaliController#calendars as HTML
+Sending HTTP get https://www.googleapis.com/calendar/v3/users/me/calendarList?
+200
+#<HTTP::Message:0x00007f97485597b8 @http_header=#<HTTP::Message::Headers:0x00007f9748559790 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fcba42ad12c URI:https://www.googleapis.com/calendar/v3/users/me/calendarList?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["Expires", "Thu, 05 Apr 2018 17:29:35 GMT"], ["Date", "Thu, 05 Apr 2018 17:29:35 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["X-Content-Type-Options", "nosniff"], ["X-Frame-Options", "SAMEORIGIN"], ["X-XSS-Protection", "1; mode=block"], ["Server", "GSE"], ["Alt-Svc", "hq=\":443\"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"42,41,39,35\""], ["Transfer-Encoding", "chunked"]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name:0x00007f9748542860>, issuer=#<OpenSSL::X509::Name:0x00007f9748542838>, serial=#<OpenSSL::BN:0x00007f9748542810>, not_before=2018-03-20 18:13:48 UTC, not_after=2018-06-12 16:56:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f9748559718 @body="{\n \"kind\": \"calendar#calendarList\",\n \"etag\": \"\\\"p32cbptfmpqhtk0g\\\"\",\n \"nextSyncToken\": \"CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=\",\n \"items\": [\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119364441000\\\"\",\n   \"id\": \"tutor4me276@gmail.com\",\n   \"summary\": \"tutor4me276@gmail.com\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"14\",\n   \"backgroundColor\": \"#9fe1e7\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"owner\",\n   \"defaultReminders\": [\n    {\n     \"method\": \"popup\",\n     \"minutes\": 30\n    }\n   ],\n   \"notificationSettings\": {\n    \"notifications\": [\n     {\n      \"type\": \"eventCreation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventChange\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventCancellation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventResponse\",\n      \"method\": \"email\"\n     }\n    ]\n   },\n   \"primary\": true,\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  },\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119362137000\\\"\",\n   \"id\": \"#contacts@group.v.calendar.google.com\",\n   \"summary\": \"Contacts\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"13\",\n   \"backgroundColor\": \"#92e1c0\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"reader\",\n   \"defaultReminders\": [],\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  }\n ]\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::CalendarV3::CalendarList:0x00007f9748541e38
+ @etag="\"p32cbptfmpqhtk0g\"",
+ @items=
+  [#<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974853b1c8
+    @access_role="owner",
+    @background_color="#9fe1e7",
+    @color_id="14",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974853a4f8
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=
+     [#<Google::Apis::CalendarV3::EventReminder:0x00007f9748539a08
+       @minutes=30,
+       @reminder_method="popup">],
+    @etag="\"1522119364441000\"",
+    @foreground_color="#000000",
+    @id="tutor4me276@gmail.com",
+    @kind="calendar#calendarListEntry",
+    @notification_settings=
+     #<Google::Apis::CalendarV3::CalendarListEntry::NotificationSettings:0x00007f974e4ef9e8
+      @notifications=
+       [#<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e4eef98
+         @delivery_method="email",
+         @type="eventCreation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e4ee548
+         @delivery_method="email",
+         @type="eventChange">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e4edb48
+         @delivery_method="email",
+         @type="eventCancellation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974e4ed238
+         @delivery_method="email",
+         @type="eventResponse">]>,
+    @primary=true,
+    @selected=true,
+    @summary="tutor4me276@gmail.com",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974e4e7d88
+    @access_role="reader",
+    @background_color="#92e1c0",
+    @color_id="13",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974e4e7108
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=[],
+    @etag="\"1522119362137000\"",
+    @foreground_color="#000000",
+    @id="#contacts@group.v.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Contacts",
+    @time_zone="America/Vancouver">],
+ @kind="calendar#calendarList",
+ @next_sync_token="CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=">
+
+Sending HTTP get https://www.googleapis.com/calendar/v3/users/me/calendarList?
+200
+#<HTTP::Message:0x00007f974e458430 @http_header=#<HTTP::Message::Headers:0x00007f974e458408 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fcba722c6c8 URI:https://www.googleapis.com/calendar/v3/users/me/calendarList?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["Expires", "Thu, 05 Apr 2018 17:29:35 GMT"], ["Date", "Thu, 05 Apr 2018 17:29:35 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["X-Content-Type-Options", "nosniff"], ["X-Frame-Options", "SAMEORIGIN"], ["X-XSS-Protection", "1; mode=block"], ["Server", "GSE"], ["Alt-Svc", "hq=\":443\"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"42,41,39,35\""], ["Transfer-Encoding", "chunked"]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name:0x00007f9748521b10>, issuer=#<OpenSSL::X509::Name:0x00007f9748521ae8>, serial=#<OpenSSL::BN:0x00007f9748521a98>, not_before=2018-03-20 18:13:48 UTC, not_after=2018-06-12 16:56:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f974e458390 @body="{\n \"kind\": \"calendar#calendarList\",\n \"etag\": \"\\\"p32cbptfmpqhtk0g\\\"\",\n \"nextSyncToken\": \"CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=\",\n \"items\": [\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119364441000\\\"\",\n   \"id\": \"tutor4me276@gmail.com\",\n   \"summary\": \"tutor4me276@gmail.com\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"14\",\n   \"backgroundColor\": \"#9fe1e7\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"owner\",\n   \"defaultReminders\": [\n    {\n     \"method\": \"popup\",\n     \"minutes\": 30\n    }\n   ],\n   \"notificationSettings\": {\n    \"notifications\": [\n     {\n      \"type\": \"eventCreation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventChange\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventCancellation\",\n      \"method\": \"email\"\n     },\n     {\n      \"type\": \"eventResponse\",\n      \"method\": \"email\"\n     }\n    ]\n   },\n   \"primary\": true,\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  },\n  {\n   \"kind\": \"calendar#calendarListEntry\",\n   \"etag\": \"\\\"1522119362137000\\\"\",\n   \"id\": \"#contacts@group.v.calendar.google.com\",\n   \"summary\": \"Contacts\",\n   \"timeZone\": \"America/Vancouver\",\n   \"colorId\": \"13\",\n   \"backgroundColor\": \"#92e1c0\",\n   \"foregroundColor\": \"#000000\",\n   \"selected\": true,\n   \"accessRole\": \"reader\",\n   \"defaultReminders\": [],\n   \"conferenceProperties\": {\n    \"allowedConferenceSolutionTypes\": [\n     \"eventHangout\"\n    ]\n   }\n  }\n ]\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::CalendarV3::CalendarList:0x00007f97485212c8
+ @etag="\"p32cbptfmpqhtk0g\"",
+ @items=
+  [#<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974f953308
+    @access_role="owner",
+    @background_color="#9fe1e7",
+    @color_id="14",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974f952610
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=
+     [#<Google::Apis::CalendarV3::EventReminder:0x00007f974f951b70
+       @minutes=30,
+       @reminder_method="popup">],
+    @etag="\"1522119364441000\"",
+    @foreground_color="#000000",
+    @id="tutor4me276@gmail.com",
+    @kind="calendar#calendarListEntry",
+    @notification_settings=
+     #<Google::Apis::CalendarV3::CalendarListEntry::NotificationSettings:0x00007f974f94bea0
+      @notifications=
+       [#<Google::Apis::CalendarV3::CalendarNotification:0x00007f974f94b770
+         @delivery_method="email",
+         @type="eventCreation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974f94ae60
+         @delivery_method="email",
+         @type="eventChange">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974f94a578
+         @delivery_method="email",
+         @type="eventCancellation">,
+        #<Google::Apis::CalendarV3::CalendarNotification:0x00007f974f949c68
+         @delivery_method="email",
+         @type="eventResponse">]>,
+    @primary=true,
+    @selected=true,
+    @summary="tutor4me276@gmail.com",
+    @time_zone="America/Vancouver">,
+   #<Google::Apis::CalendarV3::CalendarListEntry:0x00007f974f948868
+    @access_role="reader",
+    @background_color="#92e1c0",
+    @color_id="13",
+    @conference_properties=
+     #<Google::Apis::CalendarV3::ConferenceProperties:0x00007f974f943bb0
+      @allowed_conference_solution_types=["eventHangout"]>,
+    @default_reminders=[],
+    @etag="\"1522119362137000\"",
+    @foreground_color="#000000",
+    @id="#contacts@group.v.calendar.google.com",
+    @kind="calendar#calendarListEntry",
+    @selected=true,
+    @summary="Contacts",
+    @time_zone="America/Vancouver">],
+ @kind="calendar#calendarList",
+ @next_sync_token="CJi89fbOo9oCEhV0dXRvcjRtZTI3NkBnbWFpbC5jb20=">
+
+Redirected to http://localhost:3000/events/tutor4me276@gmail.com
+Completed 302 Found in 529ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events/tutor4me276@gmail.com" for 127.0.0.1 at 2018-04-05 10:29:36 -0700
+Processing by CaliController#events as HTML
+  Parameters: {"calendar_id"=>"tutor4me276@gmail.com"}
+Sending HTTP get https://www.googleapis.com/calendar/v3/calendars/tutor4me276%40gmail.com/events?
+200
+#<HTTP::Message:0x00007f9749cddab0 @http_header=#<HTTP::Message::Headers:0x00007f9749cdda88 @http_version="1.1", @body_size=0, @chunked=false, @request_method="GET", @request_uri=#<Addressable::URI:0x3fcba4e6f294 URI:https://www.googleapis.com/calendar/v3/calendars/tutor4me276%40gmail.com/events?>, @request_query=nil, @request_absolute_uri=nil, @status_code=200, @reason_phrase="OK", @body_type=nil, @body_charset=nil, @body_date=nil, @body_encoding=#<Encoding:UTF-8>, @is_request=false, @header_item=[["Expires", "Thu, 05 Apr 2018 17:29:36 GMT"], ["Date", "Thu, 05 Apr 2018 17:29:36 GMT"], ["Cache-Control", "private, max-age=0, must-revalidate, no-transform"], ["Vary", "Origin"], ["Vary", "X-Origin"], ["Content-Type", "application/json; charset=UTF-8"], ["Content-Encoding", "gzip"], ["X-Content-Type-Options", "nosniff"], ["X-Frame-Options", "SAMEORIGIN"], ["X-XSS-Protection", "1; mode=block"], ["Server", "GSE"], ["Alt-Svc", "hq=\":443\"; ma=2592000; quic=51303432; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"42,41,39,35\""], ["Transfer-Encoding", "chunked"]], @dumped=false>, @peer_cert=#<OpenSSL::X509::Certificate: subject=#<OpenSSL::X509::Name:0x00007f9749cc6518>, issuer=#<OpenSSL::X509::Name:0x00007f9749cc64f0>, serial=#<OpenSSL::BN:0x00007f9749cc64c8>, not_before=2018-03-20 18:13:48 UTC, not_after=2018-06-12 16:56:00 UTC>, @http_body=#<HTTP::Message::Body:0x00007f9749cdda10 @body="{\n \"kind\": \"calendar#events\",\n \"etag\": \"\\\"p32cbptfmpqhtk0g\\\"\",\n \"summary\": \"tutor4me276@gmail.com\",\n \"updated\": \"2018-04-05T17:04:31.039Z\",\n \"timeZone\": \"America/Vancouver\",\n \"accessRole\": \"owner\",\n \"defaultReminders\": [\n  {\n   \"method\": \"popup\",\n   \"minutes\": 30\n  }\n ],\n \"nextSyncToken\": \"CJi89fbOo9oCEJi89fbOo9oCGAU=\",\n \"items\": [\n  {\n   \"kind\": \"calendar#event\",\n   \"etag\": \"\\\"3044574637912000\\\"\",\n   \"id\": \"g0udb6isk7oe5madp2ogc332go\",\n   \"status\": \"confirmed\",\n   \"htmlLink\": \"https://www.google.com/calendar/event?eid=ZzB1ZGI2aXNrN29lNW1hZHAyb2djMzMyZ28gdHV0b3I0bWUyNzZAbQ\",\n   \"created\": \"2018-03-29T01:35:18.000Z\",\n   \"updated\": \"2018-03-29T01:35:18.956Z\",\n   \"summary\": \"12345\",\n   \"creator\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"organizer\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"start\": {\n    \"dateTime\": \"2015-05-28T09:00:00-07:00\"\n   },\n   \"end\": {\n    \"dateTime\": \"2015-05-28T17:00:00-07:00\"\n   },\n   \"iCalUID\": \"g0udb6isk7oe5madp2ogc332go@google.com\",\n   \"sequence\": 0,\n   \"reminders\": {\n    \"useDefault\": true\n   }\n  },\n  {\n   \"kind\": \"calendar#event\",\n   \"etag\": \"\\\"3045888945928000\\\"\",\n   \"id\": \"236a85e8a9fucup7jhbfh6fp2k\",\n   \"status\": \"confirmed\",\n   \"htmlLink\": \"https://www.google.com/calendar/event?eid=MjM2YTg1ZThhOWZ1Y3VwN2poYmZoNmZwMmsgdHV0b3I0bWUyNzZAbQ\",\n   \"created\": \"2018-04-05T16:07:52.000Z\",\n   \"updated\": \"2018-04-05T16:07:52.964Z\",\n   \"summary\": \"test3\",\n   \"creator\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"organizer\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"start\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"end\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"iCalUID\": \"236a85e8a9fucup7jhbfh6fp2k@google.com\",\n   \"sequence\": 0,\n   \"reminders\": {\n    \"useDefault\": true\n   }\n  },\n  {\n   \"kind\": \"calendar#event\",\n   \"etag\": \"\\\"3045889101244000\\\"\",\n   \"id\": \"7obovh4i0t79iova27tv4puaok\",\n   \"status\": \"confirmed\",\n   \"htmlLink\": \"https://www.google.com/calendar/event?eid=N29ib3ZoNGkwdDc5aW92YTI3dHY0cHVhb2sgdHV0b3I0bWUyNzZAbQ\",\n   \"created\": \"2018-04-05T16:09:10.000Z\",\n   \"updated\": \"2018-04-05T16:09:10.622Z\",\n   \"summary\": \"test1\",\n   \"creator\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"organizer\": {\n    \"email\": \"tutor4me276@gmail.com\",\n    \"self\": true\n   },\n   \"start\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"end\": {\n    \"dateTime\": \"2018-05-06T15:00:00-07:00\"\n   },\n   \"iCalUID\": \"7obovh4i0t79iova27tv4puaok@google.com\",\n   \"sequence\": 0,\n   \"reminders\": {\n    \"useDefault\": true\n   }\n  }\n ]\n}\n", @size=0, @positions=nil, @chunk_size=nil>, @previous=nil>
+Success - #<Google::Apis::CalendarV3::Events:0x00007f9749cc5cf8
+ @access_role="owner",
+ @default_reminders=
+  [#<Google::Apis::CalendarV3::EventReminder:0x00007f974f8c2628
+    @minutes=30,
+    @reminder_method="popup">],
+ @etag="\"p32cbptfmpqhtk0g\"",
+ @items=
+  [#<Google::Apis::CalendarV3::Event:0x00007f974f8c14f8
+    @created=Thu, 29 Mar 2018 01:35:18 +0000,
+    @creator=
+     #<Google::Apis::CalendarV3::Event::Creator:0x00007f974f8bb828
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @end=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974f8ba4f0
+      @date_time=Thu, 28 May 2015 17:00:00 -0700>,
+    @etag="\"3044574637912000\"",
+    @html_link=
+     "https://www.google.com/calendar/event?eid=ZzB1ZGI2aXNrN29lNW1hZHAyb2djMzMyZ28gdHV0b3I0bWUyNzZAbQ",
+    @i_cal_uid="g0udb6isk7oe5madp2ogc332go@google.com",
+    @id="g0udb6isk7oe5madp2ogc332go",
+    @kind="calendar#event",
+    @organizer=
+     #<Google::Apis::CalendarV3::Event::Organizer:0x00007f974f8b2fc0
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @reminders=
+     #<Google::Apis::CalendarV3::Event::Reminders:0x00007f974f8b1648
+      @use_default=true>,
+    @sequence=0,
+    @start=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974f8b0158
+      @date_time=Thu, 28 May 2015 09:00:00 -0700>,
+    @status="confirmed",
+    @summary="12345",
+    @updated=Thu, 29 Mar 2018 01:35:18 +0000>,
+   #<Google::Apis::CalendarV3::Event:0x00007f974f8895f8
+    @created=Thu, 05 Apr 2018 16:07:52 +0000,
+    @creator=
+     #<Google::Apis::CalendarV3::Event::Creator:0x00007f974f883720
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @end=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974f8825c8
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @etag="\"3045888945928000\"",
+    @html_link=
+     "https://www.google.com/calendar/event?eid=MjM2YTg1ZThhOWZ1Y3VwN2poYmZoNmZwMmsgdHV0b3I0bWUyNzZAbQ",
+    @i_cal_uid="236a85e8a9fucup7jhbfh6fp2k@google.com",
+    @id="236a85e8a9fucup7jhbfh6fp2k",
+    @kind="calendar#event",
+    @organizer=
+     #<Google::Apis::CalendarV3::Event::Organizer:0x00007f974f87b0c0
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @reminders=
+     #<Google::Apis::CalendarV3::Event::Reminders:0x00007f974f879220
+      @use_default=true>,
+    @sequence=0,
+    @start=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974f8781e0
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @status="confirmed",
+    @summary="test3",
+    @updated=Thu, 05 Apr 2018 16:07:52 +0000>,
+   #<Google::Apis::CalendarV3::Event:0x00007f974f872268
+    @created=Thu, 05 Apr 2018 16:09:10 +0000,
+    @creator=
+     #<Google::Apis::CalendarV3::Event::Creator:0x00007f974f8703c8
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @end=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974f86aec8
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @etag="\"3045889101244000\"",
+    @html_link=
+     "https://www.google.com/calendar/event?eid=N29ib3ZoNGkwdDc5aW92YTI3dHY0cHVhb2sgdHV0b3I0bWUyNzZAbQ",
+    @i_cal_uid="7obovh4i0t79iova27tv4puaok@google.com",
+    @id="7obovh4i0t79iova27tv4puaok",
+    @kind="calendar#event",
+    @organizer=
+     #<Google::Apis::CalendarV3::Event::Organizer:0x00007f974f8633a8
+      @email="tutor4me276@gmail.com",
+      @self=true>,
+    @reminders=
+     #<Google::Apis::CalendarV3::Event::Reminders:0x00007f974f861850
+      @use_default=true>,
+    @sequence=0,
+    @start=
+     #<Google::Apis::CalendarV3::EventDateTime:0x00007f974f8607e8
+      @date_time=Sun, 06 May 2018 15:00:00 -0700>,
+    @status="confirmed",
+    @summary="test1",
+    @updated=Thu, 05 Apr 2018 16:09:10 +0000>],
+ @kind="calendar#events",
+ @next_sync_token="CJi89fbOo9oCEJi89fbOo9oCGAU=",
+ @summary="tutor4me276@gmail.com",
+ @time_zone="America/Vancouver",
+ @updated=Thu, 05 Apr 2018 17:04:31 +0000>
+
+  Rendering cali/events.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered cali/events.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 333ms (Views: 73.9ms | ActiveRecord: 0.2ms)
+
+

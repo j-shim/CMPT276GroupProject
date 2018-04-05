@@ -45,13 +45,13 @@
     <% else %>
     <p>You currently have no upcoming tutor sessions. Add a tutor session below.</p>
     <% end %>
-   <p><a href = "../redirect" ><button class="btn btn-primary"> View Calendar </button></a></p>
+   <p><a href = "../redirect" ><button class="btn btn-primary"> add/View Calendar </button></a></p>
   </section>
-  
+
   <section class="tutor_session">
   	<h3>Create new tutor session</h3>
-   
-    
+
+
     <%= form_with scope: :tutor_session, url:tutor_sessions_path, local: true do |f| %>
     <div class="form-group">
       <%= f.label :subject %>
@@ -67,8 +67,8 @@
             <option value="<%= t.user_id %>"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></option>
           <% end %>
         </select>
-      </div> 
-      
+      </div>
+
       <% elsif @user.role == "Tutor" %>
 
         <div class="form-group">
@@ -78,7 +78,7 @@
               <option value="<%= s.user_id %>" class="name"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%></option>
             <% end %>
           </select>
-        </div> 
+        </div>
 
       <% end %>
 
@@ -93,8 +93,8 @@
         <%= f.label :"End time" %>
         <%= f.time_select :endtime, {ampm: true}, class: 'form-control' %>
       </div>
-      
-      <%= f.submit "Create", class: 'btn btn-primary' %>  
+
+      <%= f.submit "Create", class: 'btn btn-primary' %>
   <% end %>
   </section>
 </div>
@@ -121,7 +121,7 @@
     <% if @user.role == "Student" %>
     <h2> Current Tutors (<%= @user.students.find(@user.id).tutors.count %>) </h2>
       <% if @user.students.find(@user.id).tutors.any? %>
-        <ol> 
+        <ol>
         <% @user.students.find(@user.id).tutors.all.each do |t| %>
           <li><p class="name"><%= User.find(t.user_id).firstname + " " + User.find(t.user_id).lastname%></p></li>
         <% end %>
@@ -134,17 +134,15 @@
     <% elsif @user.role == "Tutor" %>
     <h2>Current Students (<%= @user.tutors.find(@user.id).students.count %>) </h2>
       <% if @user.tutors.find(@user.id).students.any? %>
-        <ol> 
+        <ol>
         <% @user.tutors.find(@user.id).students.all.each do |s| %>
           <li><p class="name"><%= User.find(s.user_id).firstname + " " + User.find(s.user_id).lastname%> </p></li>
         <% end %>
         </ol>
       <% end %>
-      
-    <% end %> 
+
+    <% end %>
   </section>
   </div><!-- end of second col div -->
   </div> <!-- end of first row div -->
 </div>
-
-

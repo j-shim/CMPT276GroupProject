@@ -22,22 +22,3 @@
   document.getElementById("calendar_embed").appendChild(iframe);
 
 </script>
-<%= form_tag new_event_url do %>
-<div>
-  Subject :
-  <%= text_field_tag (:subject) %>
-</div> <br>
-<div>
-  Starting Time :
-<%= datetime_local_field(:user, :start_date) %>
-
-Ending Time :
-<%= datetime_local_field(:user, :end_date) %>
-</div><br>
-
-  <%= submit_tag 'Add event' %>
-  <%= @today %>
-<% end %>
-<div>
-
-</div>
