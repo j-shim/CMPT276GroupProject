@@ -1,0 +1,24 @@
+<% provide(:title, "Tutor sessions") %>
+<%= render 'layouts/header' %>
+
+<div id = "url_id"> <%= params[:calendar_id] %> </div>
+<div id = "calendar_embed" > </div>
+
+<script type='text/javascript'>
+
+  var a = document.getElementById('url_id').innerHTML;
+  var b = a.slice(1,-11);
+  console.log (a);
+  console.log (b);
+  var c = "https://calendar.google.com/calendar/embed?src=" + b +"%40gmail.com&ctz=America%2FVancouver";
+  console.log(c)
+  //document.getElementById('calendar').src = c;
+  var iframe = document.createElement('iframe');
+  iframe.frameBorder=0;
+  iframe.width="800px";
+  iframe.height="600px";
+  iframe.id="calendar";
+  iframe.setAttribute("src", c);
+  document.getElementById("calendar_embed").appendChild(iframe);
+
+</script>
